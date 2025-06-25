@@ -1,6 +1,6 @@
 :root {
     --maincolor: rgb(63, 5, 70);
-    --maingrad: linear-gradient(45deg,rgb(9, 61, 129),rgb(119, 11, 92));
+    --maingrad: linear-gradient(45deg,rgb(9, 61, 129),rgb(5, 9, 66));
     --mainfont: "Play", sans-serif;
     --textcolor: white;
 }
