@@ -1,0 +1,608 @@
+:root {
+    --maincolor: rgb(63, 5, 70);
+    --maingrad: linear-gradient(45deg,rgb(9, 61, 129),rgb(119, 11, 92));
+    --mainfont: "Play", sans-serif;
+    --textcolor: white;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: var(--mainfont);
+}
+
+body {
+    height: 5000px;
+    scroll-behavior: smooth;
+    overflow: hidden;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#top {
+    background-color: transparent;
+    height: 100vh;
+    min-height: 1000px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: hidden;
+    width: 100%;
+}
+
+#nav {
+    height: 60px;
+    width: 90%;
+    max-width: 1100px;
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
+    flex-wrap: wrap;
+}
+
+#nav #links {
+    width: auto;
+    flex: 1;
+}
+
+#nav a {
+    display: inline-block;
+    color: var(--textcolor);
+    padding: 10px 30px 10px 30px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+#nav a:hover {
+    opacity: 0.8;
+    transform: scale(1.05);
+}
+
+#nav a:visited {
+    color: var(--textcolor);
+}
+
+#nav a:focus {
+    outline: 2px solid rgba(255, 255, 255, 0.5);
+    outline-offset: 2px;
+}
+
+#sign {
+    margin-left: auto;
+    width: auto;
+    display: flex;
+    gap: 10px;
+}
+
+#sign a {
+    display: inline-block;
+    min-width: 80px;
+    height: 40px;
+    border-radius: 50px;
+    background-color: var(--maincolor);
+    color: var(--textcolor);
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0 20px;
+    text-decoration: none;
+}
+
+#sign a:hover {
+    background-color: rgba(63, 5, 70, 0.8);
+    transform: translateY(-2px);
+}
+
+#sign a:visited {
+    color: var(--textcolor);
+}
+
+#sign a:focus {
+    outline: 2px solid rgba(255, 255, 255, 0.5);
+    outline-offset: 2px;
+}
+#lottieElement1 {
+    transition-duration: 2s;
+    position: absolute;
+    top: 200px;
+    z-index: 1;
+}
+#top #title {
+    width: fit-content;
+    height: fit-content;
+    color: var(--textcolor);
+    font-size: 128px;
+    font-weight: 800;
+    display: block;
+    position: relative;
+    top: 80px;
+    z-index: 1;
+}
+#top #subtitle {
+    width: fit-content;
+    height: fit-content;
+    color: var(--textcolor);
+    font-size: 25px;
+    font-weight: 400;
+    text-align: center;
+    position: relative;
+    top: 90px;
+    z-index: 1;
+}
+#lottieElement2 {
+    display: block;
+    position: absolute;
+    top: 500px ;
+    left: 100px;
+    transition-duration: .1;
+    z-index: -2;
+    transform: rotate(180deg);
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    animation-direction: normal;
+    opacity: 0;
+}
+.lottieElement2forward {
+    animation-name: middle-top-forward;
+}
+.lottieElement2backward {
+    animation-name: middle-top-reverse;
+}
+#middle-top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#middle-top #section-back {
+    position: relative;
+    top: 100px;
+    background-image: var(--maingrad);
+    width: fit-content;
+    height: fit-content;
+    padding: 5px 5px 5px 5px;
+    border-radius: 50px;
+}
+#middle-top #section-name {
+    font-size: 25px;
+    width: fit-content;
+    height: fit-content;
+    border-radius: 50px;
+    padding: 10px 30px 10px 30px;
+    color: white;
+}
+#middle-top #section-back::after {
+    content: "";
+    width: 850px;
+    height: 5px;
+    position: absolute;
+    display: block;
+    top: 50%;
+    left: 200px;
+    background-image: var(--maingrad);
+}
+#middle-top #section-back::before {
+    content: "";
+    width: 850px;
+    height: 5px;
+    position: absolute;
+    display: block;
+    top: 50%;
+    right: 200px;
+    background-image: var(--maingrad);
+}
+#middle-top #maintitle {
+    position: relative;
+    top: 120px;
+    font-size: 64px;
+    width: 1100px;
+    height: fit-content;
+    background-image: var(--maingrad);
+    color: transparent;
+    background-clip: text;
+}
+#middle-top #title-1,
+#middle-top #title-2,
+#middle-top #title-3,
+#middle-top #title-4{
+    position: relative;
+    top: 220px;
+    margin-bottom: 10px;
+    font-size: 42px;
+    font-weight: 800;
+    width: 1100px;
+    height: fit-content;
+    background-image: var(--maingrad);
+    color: transparent;
+    background-clip: text;
+}
+#middle-top #title-1::before,
+#middle-top #title-2::before,
+#middle-top #title-3::before,
+#middle-top #title-4::before {
+    content: "";
+    position: relative;
+    right: 10px;
+    border-radius: 50px;
+    border: 1px solid var(--maincolor);
+    background-color: transparent;
+}
+#middle-top #subtitle-1,
+#middle-top #subtitle-2,
+#middle-top #subtitle-3, 
+#middle-top #subtitle-4 {
+    position: relative;
+    top: 210px;
+    margin-bottom: 50px;
+    font-size: 25px;
+    width: 1100px;
+    height: fit-content;
+    background-image: var(--maingrad);
+    color: transparent;
+    background-clip: text;
+}
+
+
+
+
+
+
+
+@keyframes middle-top-forward {
+    0%{
+        top: 200px ;
+        left: 100px;
+        transform: rotate(180deg);
+        scale: 0;
+    }
+    10%{
+        top: 600px ;
+        left: 100px;
+        transform: rotate(175deg);
+    }
+    20%{
+        top: 700px ;
+        left: 200px;
+        transform: rotate(170deg);
+    }
+    30%{
+        top: 800px ;
+        left: 300px;
+        transform: rotate(165deg);
+    }
+    40%{
+        top: 900px ;
+        left: 400px;
+        transform: rotate(160deg);
+    }
+    50%{
+        top: 1000px ;
+        left: 500px;
+        transform: rotate(155deg);
+    }
+    60%{
+        top: 1100px ;
+        left: 600px;
+        transform: rotate(140deg);
+    }
+    70%{
+        top: 1200px ;
+        left: 700px;
+        transform: rotate(120deg);
+    }
+    80%{
+        top: 1300px ;
+        left: 800px;
+        transform: rotate(100deg);
+    }
+    90%{
+        top: 1400px ;
+        left: 900px;
+        transform: rotate(80deg);
+    }
+    100%{
+        top: 1300px ;
+        left: 1200px;
+        transform: rotate(60deg);
+        scale: 1.5;
+    }
+
+}
+
+@keyframes middle-top-reverse {
+    100%{
+        top: 200px ;
+        left: 100px;
+        transform: rotate(180deg);
+        scale: 0;
+    }
+    90%{
+        top: 600px ;
+        left: 100px;
+        transform: rotate(175deg);
+    }
+    80%{
+        top: 700px ;
+        left: 200px;
+        transform: rotate(170deg);
+    }
+    70%{
+        top: 800px ;
+        left: 300px;
+        transform: rotate(165deg);
+    }
+    60%{
+        top: 900px ;
+        left: 400px;
+        transform: rotate(160deg);
+    }
+    50%{
+        top: 1000px ;
+        left: 500px;
+        transform: rotate(155deg);
+    }
+    40%{
+        top: 1100px ;
+        left: 600px;
+        transform: rotate(140deg);
+    }
+    30%{
+        top: 1200px ;
+        left: 700px;
+        transform: rotate(120deg);
+    }
+    20%{
+        top: 1300px ;
+        left: 800px;
+        transform: rotate(100deg);
+    }
+    10%{
+        top: 1400px ;
+        left: 900px;
+        transform: rotate(80deg);
+    }
+    0%{
+        top: 1300px ;
+        left: 1200px;
+        transform: rotate(60deg);
+        scale: 1.5;
+    }
+
+}
+
+/* 
+   RESPONSIVE DESIGN
+*/
+
+/* Large screens (1200px and up) */
+@media (max-width: 1200px) {
+    #nav {
+        width: 90%;
+        max-width: 1000px;
+    }
+    
+    #middle-top #maintitle,
+    #middle-top #title-1,
+    #middle-top #title-2,
+    #middle-top #title-3,
+    #middle-top #title-4,
+    #middle-top #subtitle-1,
+    #middle-top #subtitle-2,
+    #middle-top #subtitle-3,
+    #middle-top #subtitle-4 {
+        width: 90%;
+        max-width: 1000px;
+    }
+    
+    #middle-top #section-back::after,
+    #middle-top #section-back::before {
+        width: 40vw;
+    }
+}
+
+/* Tablets (768px and up) */
+@media (max-width: 768px) {
+    #nav {
+        width: 95%;
+        flex-direction: column;
+        height: auto;
+        padding: 10px;
+        gap: 15px;
+    }
+    
+    #nav #links {
+        width: 100%;
+        text-align: center;
+    }
+    
+    #nav a {
+        font-size: 16px;
+        padding: 8px 15px;
+        display: inline-block;
+        margin: 0 5px;
+    }
+    
+    #sign {
+        margin-left: 0;
+        width: 100%;
+        text-align: center;
+    }
+    
+    #sign a {
+        margin: 0 5px;
+        padding: 8px 20px;
+        font-size: 14px;
+    }
+    
+    #top #title {
+        font-size: 72px;
+        text-align: center;
+        padding: 0 20px;
+    }
+    
+    #top #subtitle {
+        font-size: 20px;
+        padding: 0 20px;
+        text-align: center;
+    }
+    
+    #middle-top #maintitle {
+        font-size: 48px;
+        text-align: center;
+        padding: 0 20px;
+    }
+    
+    #middle-top #title-1,
+    #middle-top #title-2,
+    #middle-top #title-3,
+    #middle-top #title-4 {
+        font-size: 32px;
+        text-align: center;
+        padding: 0 20px;
+    }
+    
+    #middle-top #subtitle-1,
+    #middle-top #subtitle-2,
+    #middle-top #subtitle-3,
+    #middle-top #subtitle-4 {
+        font-size: 18px;
+        padding: 0 20px;
+        text-align: center;
+    }
+    
+    #middle-top #section-back::after,
+    #middle-top #section-back::before {
+        width: 25vw;
+    }
+    
+    #lottieElement1,
+    #lottieElement2 {
+        width: 40vw !important;
+        max-width: 300px;
+    }
+}
+
+/* Mobile phones (480px and down) */
+@media (max-width: 480px) {
+    #nav {
+        padding: 5px;
+        gap: 10px;
+    }
+    
+    #nav a {
+        font-size: 14px;
+        padding: 6px 12px;
+        margin: 0 2px;
+    }
+    
+    #sign a {
+        padding: 6px 15px;
+        font-size: 12px;
+    }
+    
+    #top #title {
+        font-size: 48px;
+        padding: 0 15px;
+    }
+    
+    #top #subtitle {
+        font-size: 16px;
+        padding: 0 15px;
+        line-height: 1.4;
+    }
+    
+    #middle-top #section-name {
+        font-size: 18px;
+        padding: 8px 20px;
+    }
+    
+    #middle-top #maintitle {
+        font-size: 36px;
+        padding: 0 15px;
+    }
+    
+    #middle-top #title-1,
+    #middle-top #title-2,
+    #middle-top #title-3,
+    #middle-top #title-4 {
+        font-size: 24px;
+        padding: 0 15px;
+        margin-bottom: 15px;
+    }
+    
+    #middle-top #subtitle-1,
+    #middle-top #subtitle-2,
+    #middle-top #subtitle-3,
+    #middle-top #subtitle-4 {
+        font-size: 16px;
+        padding: 0 15px;
+        margin-bottom: 30px;
+        line-height: 1.5;
+    }
+    
+    #middle-top #section-back::after,
+    #middle-top #section-back::before {
+        width: 15vw;
+    }
+    
+    #lottieElement1,
+    #lottieElement2 {
+        width: 50vw !important;
+        max-width: 250px;
+    }
+    
+    #top {
+        height: 100vh;
+        min-height: 600px;
+    }
+    
+    #videoBackground {
+        height: 100vh;
+        min-height: 600px;
+    }
+}
+
+/* Extra small screens (320px and down) */
+@media (max-width: 320px) {
+    #nav a {
+        font-size: 12px;
+        padding: 4px 8px;
+    }
+    
+    #top #title {
+        font-size: 36px;
+    }
+    
+    #top #subtitle {
+        font-size: 14px;
+    }
+    
+    #middle-top #maintitle {
+        font-size: 28px;
+    }
+    
+    #middle-top #title-1,
+    #middle-top #title-2,
+    #middle-top #title-3,
+    #middle-top #title-4 {
+        font-size: 20px;
+    }
+    
+    #middle-top #subtitle-1,
+    #middle-top #subtitle-2,
+    #middle-top #subtitle-3,
+    #middle-top #subtitle-4 {
+        font-size: 14px;
+    }
+    
+    #middle-top #section-back::after,
+    #middle-top #section-back::before {
+        display: none;
+    }
+}
