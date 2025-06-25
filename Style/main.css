@@ -108,7 +108,7 @@ body {
     outline-offset: 2px;
 }
 #lottieElement1 {
-    transition-duration: 2s;
+    transition-duration: 1s;
     position: absolute;
     top: 200px;
     z-index: 1;
@@ -136,12 +136,12 @@ body {
     z-index: 1;
 }
 #lottieElement2 {
-    display: block;
+    display: none;
     position: absolute;
     top: 500px ;
     left: 100px;
     transition-duration: .1;
-    z-index: -2;
+    z-index: 1;
     transform: rotate(180deg);
     animation-duration: 1s;
     animation-timing-function: linear;
@@ -150,15 +150,19 @@ body {
     opacity: 0;
 }
 .lottieElement2forward {
+    display: block !important;
     animation-name: middle-top-forward;
 }
 .lottieElement2backward {
+    display: block !important;
     animation-name: middle-top-reverse;
 }
 #middle-top {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: white;
+    height: 1080px;
 }
 #middle-top #section-back {
     position: relative;
@@ -168,6 +172,7 @@ body {
     height: fit-content;
     padding: 5px 5px 5px 5px;
     border-radius: 50px;
+    z-index: 2;
 }
 #middle-top #section-name {
     font-size: 25px;
@@ -176,6 +181,8 @@ body {
     border-radius: 50px;
     padding: 10px 30px 10px 30px;
     color: white;
+    z-index: 2;
+
 }
 #middle-top #section-back::after {
     content: "";
@@ -184,8 +191,11 @@ body {
     position: absolute;
     display: block;
     top: 50%;
-    left: 200px;
+    left: 100%;
     background-image: var(--maingrad);
+    transform: rotate(180deg);
+    z-index: 2;
+
 }
 #middle-top #section-back::before {
     content: "";
@@ -194,8 +204,11 @@ body {
     position: absolute;
     display: block;
     top: 50%;
-    right: 200px;
+    right: 100%;
     background-image: var(--maingrad);
+    transform: rotate(180deg);
+    z-index: 2;
+
 }
 #middle-top #maintitle {
     position: relative;
@@ -206,13 +219,15 @@ body {
     background-image: var(--maingrad);
     color: transparent;
     background-clip: text;
+    z-index: 2;
+
 }
 #middle-top #title-1,
 #middle-top #title-2,
 #middle-top #title-3,
 #middle-top #title-4{
     position: relative;
-    top: 220px;
+    top: 190px;
     margin-bottom: 10px;
     font-size: 42px;
     font-weight: 800;
@@ -221,6 +236,8 @@ body {
     background-image: var(--maingrad);
     color: transparent;
     background-clip: text;
+    z-index: 2;
+
 }
 #middle-top #title-1::before,
 #middle-top #title-2::before,
@@ -230,15 +247,17 @@ body {
     position: relative;
     right: 10px;
     border-radius: 50px;
-    border: 1px solid var(--maincolor);
+    border: 2px solid var(--maincolor);
     background-color: transparent;
+    z-index: 2;
+
 }
 #middle-top #subtitle-1,
 #middle-top #subtitle-2,
 #middle-top #subtitle-3, 
 #middle-top #subtitle-4 {
     position: relative;
-    top: 210px;
+    top: 190px;
     margin-bottom: 50px;
     font-size: 25px;
     width: 1100px;
@@ -246,6 +265,8 @@ body {
     background-image: var(--maingrad);
     color: transparent;
     background-clip: text;
+    z-index: 2;
+
 }
 
 
@@ -262,6 +283,7 @@ body {
         scale: 0;
     }
     10%{
+        opacity: 0;
         top: 600px ;
         left: 100px;
         transform: rotate(175deg);
@@ -277,6 +299,7 @@ body {
         transform: rotate(165deg);
     }
     40%{
+        opacity: 1;
         top: 900px ;
         left: 400px;
         transform: rotate(160deg);
@@ -323,6 +346,7 @@ body {
         scale: 0;
     }
     90%{
+        opacity: 0;
         top: 600px ;
         left: 100px;
         transform: rotate(175deg);
@@ -338,6 +362,7 @@ body {
         transform: rotate(165deg);
     }
     60%{
+        opacity: 1;
         top: 900px ;
         left: 400px;
         transform: rotate(160deg);

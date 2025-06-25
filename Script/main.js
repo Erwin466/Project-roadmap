@@ -1,4 +1,5 @@
 let topDiv = document.getElementById("top");
+let middleTop = document.getElementById("middle-top");
 let lottieElement1 = document.getElementById("lottieElement1");
 let lottieElement2 = document.getElementById("lottieElement2");
 
@@ -8,6 +9,7 @@ function setResponsiveDimensions() {
     let screenHeight = window.innerHeight;
     
     topDiv.style.width = '100%';
+    middleTop.style.width = '100%';
     
     // Responsive positioning for lottie elements
     if (screenWidth <= 480) {
@@ -45,6 +47,8 @@ window.addEventListener('resize', setResponsiveDimensions);
 //         lottieElement2.style.left = `${200}px`;}
 //     }, 1000);
 
+let lastScrollY = 0;
+
 window.addEventListener("wheel", (event) => {
     let screenWidth = window.innerWidth;
     let isMobile = screenWidth <= 768;
@@ -53,10 +57,10 @@ window.addEventListener("wheel", (event) => {
     let scaleValue = isMobile ? 2 : 4;
     let topOffset = isMobile ? -1000 : -2000;
     
-    lottieElement1.style.top = `${topOffset}px`;
-    lottieElement1.style.scale = scaleValue;
-     if (event.deltaY > 0) {
+     if (event.deltaY > 0 && lastScrollY == 0) {
         // Show the left rocket and start animation
+        lottieElement1.style.top = `${topOffset}px`;
+        lottieElement1.style.scale = scaleValue;
         lottieElement2.style.opacity = 1;
         setTimeout(() => {
             lottieElement2.classList.remove("lottieElement2backward");
@@ -67,7 +71,7 @@ window.addEventListener("wheel", (event) => {
             });
         }, isMobile ? 200 : 300);
     }
-    if (event.deltaY < 0) {
+    if (event.deltaY < 0 && lastScrollY == 1080) {
         lottieElement2.classList.remove("lottieElement2forward");
         lottieElement2.classList.add("lottieElement2backward");
         setTimeout(() => {
@@ -81,6 +85,8 @@ window.addEventListener("wheel", (event) => {
             })
         }, isMobile ? 400 : 800);
     }
+    lastScrollY = window.scrollY;
+    console.log(lastScrollY);
 });
 
 // Touch support for mobile devices
