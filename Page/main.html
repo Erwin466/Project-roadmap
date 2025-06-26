@@ -1,68 +1,126 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Roadmaps</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='../Style/main.css'>
-    <link rel='stylesheet' type='text/css' media='screen' href='../Style/background.css'>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap" rel="stylesheet">
-</head>
-<body>
-    <div id="top">
-        <div id="nav">
-            <div id="links">
-                <a href="#main" id="main">Main</a>
-                <a href="roadmaps.html" id="Roadmaps">Roadmaps</a>
-                <a href="#skills" id="Skills">Skills</a>
-                <a href="#about" id="About us">About us</a>
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Roadmap Platform</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+            name="description"
+            content="A modern learning platform with gamification, shop, and social features."
+        />
+        <meta
+            name="keywords"
+            content="learning, roadmap, gamification, shop, social, dashboard"
+        />
+        <meta property="og:title" content="Roadmap Platform" />
+        <meta
+            property="og:description"
+            content="A modern learning platform with gamification, shop, and social features."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://yourdomain.com/" />
+        <meta property="og:image" content="/Assets/og-image.png" />
+        <link
+            rel="stylesheet"
+            type="text/css"
+            media="screen"
+            href="../Style/main.css"
+        />
+        <link
+            rel="stylesheet"
+            type="text/css"
+            media="screen"
+            href="../Style/background.css"
+        />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+        <nav>
+            <a href="#main-content" class="skip-link">Skip to main content</a>
+            <a href="main.html">Home</a>
+            <a href="dashboard.html" id="nav-dashboard">Dashboard</a>
+            <a href="roadmaps.html">Roadmaps</a>
+            <a href="shop.html">Shop</a>
+            <a href="social.html">Social</a>
+            <a href="signin.html" id="nav-signin">Sign In</a>
+            <a href="signup.html" id="nav-signup">Sign Up</a>
+            <a href="#" id="nav-logout" style="display: none">Logout</a>
+        </nav>
+        <div id="top">
+            <div id="nav">
+                <div id="links">
+                    <a href="#main" id="main">Main</a>
+                    <a href="roadmaps.html" id="Roadmaps">Roadmaps</a>
+                    <a href="#skills" id="Skills">Skills</a>
+                    <a href="#about" id="About us">About us</a>
+                </div>
+                <div id="sign">
+                    <a href="signin.html" id="signin">Sign in</a>
+                    <a href="signup.html" id="signup">Sign up</a>
+                </div>
             </div>
-            <div id="sign">
-                <a href="signin.html" id="signin">Sign in</a>
-                <a href="signup.html" id="signup">Sign up</a>
-            </div>
-        </div>
             <lottie-player
-                src="/Assets/Animation - 1750768719983.json" background="transparent"
+                src="/Assets/Animation - 1750768719983.json"
+                background="transparent"
                 speed="1"
                 loop
                 autoplay
-                id="lottieElement1">
+                id="lottieElement1"
+            >
             </lottie-player>
-        <p id="title">Roadmaps</p>
-        <p id="subtitle">Learn anything you want at your own pace <br> All you need to learn in one place</p>
-    </div>
-    <div id="middle-top">
-        <lottie-player
-                src="/Assets/Animation - 1750768719983.json" background="transparent"
+            <p id="title">Roadmaps</p>
+            <p id="subtitle">
+                Learn anything you want at your own pace <br />
+                All you need to learn in one place
+            </p>
+        </div>
+        <div id="middle-top">
+            <lottie-player
+                src="/Assets/Animation - 1750768719983.json"
+                background="transparent"
                 speed="1"
                 loop
                 autoplay
                 id="lottieElement2"
-                >
-         </lottie-player>
-         <div id="section-back">
-            <p id="section-name">Our Philosophy</p>
-         </div>
-        <p id="maintitle">What do we offer to you</p>
-        <p id="title-1">Custom learning pace</p>
-        <p id="subtitle-1">Decide what you want to learn, build the roadmap that suits you, decide on what pace you want to learn and then let us guide you through your learning</p>
-        <p id="title-2">Variety of roadmaps</p>
-        <p id="subtitle-2">We offer you many roadmaps to choose from it what suits you, and every roadmap was precisely crafted</p>
-        <p id="title-3">Testing your understanding</p>
-        <p id="subtitle-3">A quiz after each session to test your understanding, in addition to tests at some points in course and final test at the end of each course</p>
-        <p id="title-4">Reward system</p>
-        <p id="subtitle-4">Improve yourself and your understanding to get points after every quiz, tests and login, and exchange it with many rewards at our shop and increase your reputation</p>
-
-    </div>
-    <div id="middle-bottom">
-        
-    </div>
-    <script src='../Script/background.js'></script>
-    <script src='../Script/main.js'></script>
-    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-</body>
+            >
+            </lottie-player>
+            <div id="section-back">
+                <p id="section-name">Our Philosophy</p>
+            </div>
+            <p id="maintitle">What do we offer to you</p>
+            <p id="title-1">Custom learning pace</p>
+            <p id="subtitle-1">
+                Decide what you want to learn, build the roadmap that suits you,
+                decide on what pace you want to learn and then let us guide you
+                through your learning
+            </p>
+            <p id="title-2">Variety of roadmaps</p>
+            <p id="subtitle-2">
+                We offer you many roadmaps to choose from it what suits you, and
+                every roadmap was precisely crafted
+            </p>
+            <p id="title-3">Testing your understanding</p>
+            <p id="subtitle-3">
+                A quiz after each session to test your understanding, in
+                addition to tests at some points in course and final test at the
+                end of each course
+            </p>
+            <p id="title-4">Reward system</p>
+            <p id="subtitle-4">
+                Improve yourself and your understanding to get points after
+                every quiz, tests and login, and exchange it with many rewards
+                at our shop and increase your reputation
+            </p>
+        </div>
+        <div id="middle-bottom"></div>
+        <script src="../Script/background.js"></script>
+        <script src="../Script/main.js"></script>
+        <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    </body>
 </html>
