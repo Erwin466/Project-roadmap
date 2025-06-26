@@ -2,14 +2,18 @@
 :root {
   --dashboard-accent: #00b894;
 }
-#user-progress, #gamification-stats, #recent-activity, #recommended-courses, #quick-access {
+#user-progress,
+#gamification-stats,
+#recent-activity,
+#recommended-courses,
+#quick-access {
   margin: 2rem auto;
   max-width: 1000px;
 }
 .dashboard-card {
   background: #fff;
   border-radius: 10px;
-  box-shadow: 0 2px 12px rgba(0,184,148,0.08);
+  box-shadow: 0 2px 12px rgba(0, 184, 148, 0.08);
   padding: 2rem;
   margin-bottom: 2rem;
   display: flex;
@@ -40,7 +44,11 @@
   color: var(--dashboard-accent);
 }
 @media (max-width: 700px) {
-  #user-progress, #gamification-stats, #recent-activity, #recommended-courses, #quick-access {
+  #user-progress,
+  #gamification-stats,
+  #recent-activity,
+  #recommended-courses,
+  #quick-access {
     padding: 0 1rem;
   }
   .dashboard-card {

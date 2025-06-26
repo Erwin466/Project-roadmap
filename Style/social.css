@@ -2,18 +2,24 @@
 :root {
   --social-accent: #6c63ff;
 }
-#activity-feed, #discussion-forums, #user-profiles, #social-achievements {
+#activity-feed,
+#discussion-forums,
+#user-profiles,
+#social-achievements {
   margin: 2rem auto;
   max-width: 900px;
 }
-.activity-card, .discussion-thread {
+.activity-card,
+.discussion-thread {
   background: #fff;
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(108,99,255,0.08);
+  box-shadow: 0 2px 8px rgba(108, 99, 255, 0.08);
   padding: 1.25rem;
   margin-bottom: 1.25rem;
 }
-.like-btn, .share-btn, .follow-btn {
+.like-btn,
+.share-btn,
+.follow-btn {
   background: var(--social-accent);
   color: #fff;
   border: none;
@@ -23,7 +29,9 @@
   cursor: pointer;
   transition: background 0.2s;
 }
-.like-btn:hover, .share-btn:hover, .follow-btn:hover {
+.like-btn:hover,
+.share-btn:hover,
+.follow-btn:hover {
   background: #554ee0;
 }
 .comment-thread {
@@ -32,7 +40,10 @@
   padding-left: 1rem;
 }
 @media (max-width: 600px) {
-  #activity-feed, #discussion-forums, #user-profiles, #social-achievements {
+  #activity-feed,
+  #discussion-forums,
+  #user-profiles,
+  #social-achievements {
     padding: 0 1rem;
   }
   .comment-thread {

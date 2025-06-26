@@ -1,4 +1,3 @@
-/mnt/4BC9EBFC28ECC8F5/Others/Projects/Project-roadmap/Script/profile.js
 // Example: Fetch, update, and logout user profile using AuthSDK.authFetch
 // Assumes AuthSDK is loaded globally via <script src="../Config/auth-sdk.js"></script>
 

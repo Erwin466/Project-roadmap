@@ -3,366 +3,392 @@
    ==================================== */
 
 .animated-background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: -10;
-    overflow: hidden;
-    background: linear-gradient(135deg, #1d253b 0%, #0d1b4d 25%, #041944 50%, #0e183b 75%, #101d3f 100%);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -10;
+  overflow: hidden;
+  background: linear-gradient(
+    135deg,
+    #1d253b 0%,
+    #0d1b4d 25%,
+    #041944 50%,
+    #0e183b 75%,
+    #101d3f 100%
+  );
 }
 
 /* Floating particles */
 .particles {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 
 .particle {
-    position: absolute;
-    background: rgba(147, 197, 253, 0.8);
-    border-radius: 50%;
-    animation: float 20s infinite linear;
-    opacity: 0;
+  position: absolute;
+  background: rgba(147, 197, 253, 0.8);
+  border-radius: 50%;
+  animation: float 20s infinite linear;
+  opacity: 0;
 }
 
 .particle:nth-child(1) {
-    width: 2px;
-    height: 2px;
-    left: 10%;
-    animation-delay: 0s;
-    animation-duration: 25s;
+  width: 2px;
+  height: 2px;
+  left: 10%;
+  animation-delay: 0s;
+  animation-duration: 25s;
 }
 
 .particle:nth-child(2) {
-    width: 3px;
-    height: 3px;
-    left: 20%;
-    animation-delay: 2s;
-    animation-duration: 20s;
+  width: 3px;
+  height: 3px;
+  left: 20%;
+  animation-delay: 2s;
+  animation-duration: 20s;
 }
 
 .particle:nth-child(3) {
-    width: 1px;
-    height: 1px;
-    left: 30%;
-    animation-delay: 4s;
-    animation-duration: 30s;
+  width: 1px;
+  height: 1px;
+  left: 30%;
+  animation-delay: 4s;
+  animation-duration: 30s;
 }
 
 .particle:nth-child(4) {
-    width: 4px;
-    height: 4px;
-    left: 40%;
-    animation-delay: 6s;
-    animation-duration: 15s;
+  width: 4px;
+  height: 4px;
+  left: 40%;
+  animation-delay: 6s;
+  animation-duration: 15s;
 }
 
 .particle:nth-child(5) {
-    width: 2px;
-    height: 2px;
-    left: 50%;
-    animation-delay: 8s;
-    animation-duration: 22s;
+  width: 2px;
+  height: 2px;
+  left: 50%;
+  animation-delay: 8s;
+  animation-duration: 22s;
 }
 
 .particle:nth-child(6) {
-    width: 3px;
-    height: 3px;
-    left: 60%;
-    animation-delay: 10s;
-    animation-duration: 18s;
+  width: 3px;
+  height: 3px;
+  left: 60%;
+  animation-delay: 10s;
+  animation-duration: 18s;
 }
 
 .particle:nth-child(7) {
-    width: 1px;
-    height: 1px;
-    left: 70%;
-    animation-delay: 12s;
-    animation-duration: 28s;
+  width: 1px;
+  height: 1px;
+  left: 70%;
+  animation-delay: 12s;
+  animation-duration: 28s;
 }
 
 .particle:nth-child(8) {
-    width: 2px;
-    height: 2px;
-    left: 80%;
-    animation-delay: 14s;
-    animation-duration: 24s;
+  width: 2px;
+  height: 2px;
+  left: 80%;
+  animation-delay: 14s;
+  animation-duration: 24s;
 }
 
 .particle:nth-child(9) {
-    width: 4px;
-    height: 4px;
-    left: 90%;
-    animation-delay: 16s;
-    animation-duration: 16s;
+  width: 4px;
+  height: 4px;
+  left: 90%;
+  animation-delay: 16s;
+  animation-duration: 16s;
 }
 
 .particle:nth-child(10) {
-    width: 1px;
-    height: 1px;
-    left: 95%;
-    animation-delay: 18s;
-    animation-duration: 26s;
+  width: 1px;
+  height: 1px;
+  left: 95%;
+  animation-delay: 18s;
+  animation-duration: 26s;
 }
 
 /* Floating geometric shapes */
 .geometric-shapes {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 
 .shape {
-    position: absolute;
-    opacity: 0.1;
-    animation: geometricFloat 30s infinite ease-in-out;
+  position: absolute;
+  opacity: 0.1;
+  animation: geometricFloat 30s infinite ease-in-out;
 }
 
 .shape:nth-child(1) {
-    width: 60px;
-    height: 60px;
-    background: rgba(147, 197, 253, 0.2);
-    border-radius: 50%;
-    top: 10%;
-    left: 15%;
-    animation-delay: 0s;
+  width: 60px;
+  height: 60px;
+  background: rgba(147, 197, 253, 0.2);
+  border-radius: 50%;
+  top: 10%;
+  left: 15%;
+  animation-delay: 0s;
 }
 
 .shape:nth-child(2) {
-    width: 40px;
-    height: 40px;
-    background: rgba(147, 197, 253, 0.15);
-    transform: rotate(45deg);
-    top: 60%;
-    left: 80%;
-    animation-delay: 5s;
+  width: 40px;
+  height: 40px;
+  background: rgba(147, 197, 253, 0.15);
+  transform: rotate(45deg);
+  top: 60%;
+  left: 80%;
+  animation-delay: 5s;
 }
 
 .shape:nth-child(3) {
-    width: 0;
-    height: 0;
-    border-left: 25px solid transparent;
-    border-right: 25px solid transparent;
-    border-bottom: 43px solid rgba(147, 197, 253, 0.12);
-    top: 80%;
-    left: 20%;
-    animation-delay: 10s;
+  width: 0;
+  height: 0;
+  border-left: 25px solid transparent;
+  border-right: 25px solid transparent;
+  border-bottom: 43px solid rgba(147, 197, 253, 0.12);
+  top: 80%;
+  left: 20%;
+  animation-delay: 10s;
 }
 
 .shape:nth-child(4) {
-    width: 50px;
-    height: 50px;
-    background: rgba(147, 197, 253, 0.18);
-    border-radius: 10px;
-    top: 30%;
-    left: 70%;
-    animation-delay: 15s;
+  width: 50px;
+  height: 50px;
+  background: rgba(147, 197, 253, 0.18);
+  border-radius: 10px;
+  top: 30%;
+  left: 70%;
+  animation-delay: 15s;
 }
 
 .shape:nth-child(5) {
-    width: 35px;
-    height: 35px;
-    background: rgba(147, 197, 253, 0.14);
-    border-radius: 50%;
-    top: 70%;
-    left: 10%;
-    animation-delay: 20s;
+  width: 35px;
+  height: 35px;
+  background: rgba(147, 197, 253, 0.14);
+  border-radius: 50%;
+  top: 70%;
+  left: 10%;
+  animation-delay: 20s;
 }
 
 /* Animated grid pattern */
 .grid-pattern {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-image: 
-        linear-gradient(rgba(147, 197, 253, 0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(147, 197, 253, 0.05) 1px, transparent 1px);
-    background-size: 50px 50px;
-    animation: gridMove 60s linear infinite;
-    opacity: 0.3;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image:
+    linear-gradient(rgba(147, 197, 253, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(147, 197, 253, 0.05) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: gridMove 60s linear infinite;
+  opacity: 0.3;
 }
 
 /* Pulsing orbs */
 .orbs {
-    position: absolute;
-    width: 100%;
-    height: 100%;
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }
 
 .orb {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(1px);
-    animation: pulse 8s ease-in-out infinite;
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(1px);
+  animation: pulse 8s ease-in-out infinite;
 }
 
 .orb:nth-child(1) {
-    width: 150px;
-    height: 150px;
-    background: radial-gradient(circle, rgba(147, 197, 253, 0.1) 0%, transparent 70%);
-    top: 20%;
-    left: 10%;
-    animation-delay: 0s;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(
+    circle,
+    rgba(147, 197, 253, 0.1) 0%,
+    transparent 70%
+  );
+  top: 20%;
+  left: 10%;
+  animation-delay: 0s;
 }
 
 .orb:nth-child(2) {
-    width: 100px;
-    height: 100px;
-    background: radial-gradient(circle, rgba(147, 197, 253, 0.08) 0%, transparent 70%);
-    top: 60%;
-    right: 15%;
-    animation-delay: 2s;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(
+    circle,
+    rgba(147, 197, 253, 0.08) 0%,
+    transparent 70%
+  );
+  top: 60%;
+  right: 15%;
+  animation-delay: 2s;
 }
 
 .orb:nth-child(3) {
-    width: 200px;
-    height: 200px;
-    background: radial-gradient(circle, rgba(147, 197, 253, 0.06) 0%, transparent 70%);
-    bottom: 10%;
-    left: 50%;
-    animation-delay: 4s;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(
+    circle,
+    rgba(147, 197, 253, 0.06) 0%,
+    transparent 70%
+  );
+  bottom: 10%;
+  left: 50%;
+  animation-delay: 4s;
 }
 
 /* Dynamic wave effect */
 .wave-effect {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100px;
-    background: linear-gradient(0deg, rgba(147, 197, 253, 0.05) 0%, transparent 100%);
-    animation: wave 12s ease-in-out infinite;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: linear-gradient(
+    0deg,
+    rgba(147, 197, 253, 0.05) 0%,
+    transparent 100%
+  );
+  animation: wave 12s ease-in-out infinite;
 }
 
 /* Animations */
 @keyframes float {
-    0% {
-        transform: translateY(100vh) translateX(0px) rotate(0deg);
-        opacity: 0;
-    }
-    10% {
-        opacity: 1;
-    }
-    90% {
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(-100vh) translateX(100px) rotate(360deg);
-        opacity: 0;
-    }
+  0% {
+    transform: translateY(100vh) translateX(0px) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) translateX(100px) rotate(360deg);
+    opacity: 0;
+  }
 }
 
 @keyframes geometricFloat {
-    0%, 100% {
-        transform: translateY(0px) rotate(0deg);
-        opacity: 0.1;
-    }
-    50% {
-        transform: translateY(-30px) rotate(180deg);
-        opacity: 0.2;
-    }
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+    opacity: 0.1;
+  }
+  50% {
+    transform: translateY(-30px) rotate(180deg);
+    opacity: 0.2;
+  }
 }
 
 @keyframes gridMove {
-    0% {
-        transform: translate(0, 0);
-    }
-    100% {
-        transform: translate(50px, 50px);
-    }
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(50px, 50px);
+  }
 }
 
 @keyframes pulse {
-    0%, 100% {
-        transform: scale(1);
-        opacity: 0.1;
-    }
-    50% {
-        transform: scale(1.2);
-        opacity: 0.2;
-    }
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.1;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.2;
+  }
 }
 
 @keyframes wave {
-    0%, 100% {
-        transform: translateX(0) scaleY(1);
-    }
-    50% {
-        transform: translateX(-25px) scaleY(1.1);
-    }
+  0%,
+  100% {
+    transform: translateX(0) scaleY(1);
+  }
+  50% {
+    transform: translateX(-25px) scaleY(1.1);
+  }
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-    .particle {
-        animation-duration: 15s;
-    }
-    
-    .shape {
-        animation-duration: 20s;
-    }
-    
-    .shape:nth-child(1) {
-        width: 40px;
-        height: 40px;
-    }
-    
-    .shape:nth-child(2) {
-        width: 30px;
-        height: 30px;
-    }
-    
-    .shape:nth-child(4) {
-        width: 35px;
-        height: 35px;
-    }
-    
-    .orb:nth-child(1) {
-        width: 100px;
-        height: 100px;
-    }
-    
-    .orb:nth-child(2) {
-        width: 70px;
-        height: 70px;
-    }
-    
-    .orb:nth-child(3) {
-        width: 120px;
-        height: 120px;
-    }
+  .particle {
+    animation-duration: 15s;
+  }
+
+  .shape {
+    animation-duration: 20s;
+  }
+
+  .shape:nth-child(1) {
+    width: 40px;
+    height: 40px;
+  }
+
+  .shape:nth-child(2) {
+    width: 30px;
+    height: 30px;
+  }
+
+  .shape:nth-child(4) {
+    width: 35px;
+    height: 35px;
+  }
+
+  .orb:nth-child(1) {
+    width: 100px;
+    height: 100px;
+  }
+
+  .orb:nth-child(2) {
+    width: 70px;
+    height: 70px;
+  }
+
+  .orb:nth-child(3) {
+    width: 120px;
+    height: 120px;
+  }
 }
 
 @media (max-width: 480px) {
-    .grid-pattern {
-        background-size: 30px 30px;
-    }
-    
-    .particle {
-        animation-duration: 12s;
-    }
-    
-    .shape {
-        animation-duration: 15s;
-    }
-    
-    .orb:nth-child(1) {
-        width: 80px;
-        height: 80px;
-    }
-    
-    .orb:nth-child(2) {
-        width: 50px;
-        height: 50px;
-    }
-    
-    .orb:nth-child(3) {
-        width: 90px;
-        height: 90px;
-    }
+  .grid-pattern {
+    background-size: 30px 30px;
+  }
+
+  .particle {
+    animation-duration: 12s;
+  }
+
+  .shape {
+    animation-duration: 15s;
+  }
+
+  .orb:nth-child(1) {
+    width: 80px;
+    height: 80px;
+  }
+
+  .orb:nth-child(2) {
+    width: 50px;
+    height: 50px;
+  }
+
+  .orb:nth-child(3) {
+    width: 90px;
+    height: 90px;
+  }
 }

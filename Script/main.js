@@ -1,5 +1,14 @@
-import { checkAuthState } from "./Config/auth-sdk.js";
-import { showNotification } from "./utils.js";
+import { apiRequest } from "../Config/auth-sdk.js";
+
+// Helper to check authentication state using AuthSDK
+function checkAuthState() {
+  if (window.AuthSDK && typeof window.AuthSDK.getTokens === "function") {
+    const tokens = window.AuthSDK.getTokens && window.AuthSDK.getTokens();
+    return !!tokens || window.AuthSDK.config.useCookies;
+  }
+  // Fallback: check localStorage for legacy support
+  return !!localStorage.getItem("authTokens");
+}
 
 // Modularize code, add intersection observer, accessibility, and auth state nav
 
@@ -43,7 +52,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // Function to set responsive dimensions
   function setResponsiveDimensions() {
     let screenWidth = window.innerWidth;
-    let screenHeight = window.innerHeight;
 
     topDiv.style.width = "100%";
     middleTop.style.width = "100%";
