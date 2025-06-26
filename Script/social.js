@@ -1,5 +1,5 @@
 // Social features module: comments, likes, shares, discussions, activity feed
-import { apiRequest } from "../Config/auth-sdk.js";
+import { apiRequest } from "./utils.js";
 
 export async function loadActivityFeed() {
   await apiRequest("social/feed/");

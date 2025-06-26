@@ -1,4 +1,4 @@
-import { apiRequest } from "../Config/auth-sdk.js";
+import { apiRequest } from "../utils.js";
 
 // Signup Form Functionality
 // Assumes AuthSDK is loaded globally via <script src="../Config/auth-sdk.js"></script>
@@ -119,6 +119,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
       return result === 0;
     }
+    // eslint-disable-next-line security/detect-possible-timing-attacks
     if (!constantTimeEquals(password, confirmPassword)) {
       showSignupMessage("Passwords do not match.", "error");
       confirmPasswordInput.focus();

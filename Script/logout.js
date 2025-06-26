@@ -1,6 +1,5 @@
-// Logout integration using AuthSDK.logout and redirect to signin.html
-// Assumes AuthSDK is loaded globally via <script src="../Config/auth-sdk.js"></script>
-/* global AuthSDK */
+// Logout integration using new auth.js logout method and redirect to signin.html
+import { logout } from "../Script/auth.js";
 
 document.addEventListener("DOMContentLoaded", function () {
   const logoutBtn = document.getElementById("logout-btn");
@@ -9,10 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
   logoutBtn.addEventListener("click", async function (e) {
     e.preventDefault();
     try {
-      // Ensure AuthSDK exists before calling logout
-      if (typeof AuthSDK !== "undefined" && AuthSDK.logout) {
-        await AuthSDK.logout();
-      }
+      await logout();
     } catch (error) {
       // Optionally show an error, but always redirect for security
       // alert(error.message || "Logout failed");

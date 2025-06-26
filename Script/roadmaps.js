@@ -1,6 +1,6 @@
 // Roadmaps Page Interactive Functionality
 
-import { apiRequest } from "../Config/auth-sdk.js";
+import { apiRequest } from "../Script/utils.js";
 
 document.addEventListener("DOMContentLoaded", function () {
   console.log("Roadmaps page loaded");

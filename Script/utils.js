@@ -1,4 +1,28 @@
 // Utility functions for input sanitization, validation, formatting, and UI helpers
+import { API_BASE_URL } from "../Config/api.js";
+
+/**
+ * Universal API request utility that prepends the production backend base URL.
+ * Usage: apiRequest("courses/", { method: "GET" })
+ */
+export async function apiRequest(endpoint, options = {}) {
+  const url = endpoint.startsWith("http")
+    ? endpoint
+    : API_BASE_URL + endpoint.replace(/^\/+/, "");
+  const response = await fetch(url, {
+    credentials: "include", // or "same-origin" if using cookies
+    headers: {
+      "Content-Type": "application/json",
+      ...options.headers,
+    },
+    ...options,
+  });
+  if (!response.ok) {
+    const error = await response.json().catch(() => ({}));
+    throw new Error(error.detail || response.statusText);
+  }
+  return response.json();
+}
 export function sanitizeInput(str) {
   const div = document.createElement("div");
   div.textContent = str;
@@ -37,11 +61,27 @@ export function throttle(fn, limit) {
   };
 }
 
-export function showNotification(_msg) {
+export function showNotification() {
   // Placeholder for notification UI logic
 }
 
 export function trapFocus() {
   // Placeholder for accessibility helper for modals
 }
+// Show a global error notification at the top of the page
+export function showGlobalError(message) {
+  let errorDiv = document.getElementById("global-error");
+  if (!errorDiv) {
+    errorDiv = document.createElement("div");
+    errorDiv.id = "global-error";
+    errorDiv.className = "global-error";
+    document.body.prepend(errorDiv);
+  }
+  errorDiv.textContent = message;
+  errorDiv.style.display = "block";
+  setTimeout(() => {
+    errorDiv.style.display = "none";
+  }, 5000);
+}
+
 // ...other utilities...

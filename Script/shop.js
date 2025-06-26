@@ -1,5 +1,5 @@
 // Shop module for browsing, purchasing, and inventory management
-import { apiRequest } from "../Config/auth-sdk.js";
+import { apiRequest } from "../utils.js";
 
 export async function loadShopCategories() {
   await apiRequest("shop/categories/");

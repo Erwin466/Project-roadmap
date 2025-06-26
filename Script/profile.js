@@ -1,6 +1,6 @@
-// Example: Fetch, update, and logout user profile using AuthSDK.authFetch
-// Assumes AuthSDK is loaded globally via <script src="../Config/auth-sdk.js"></script>
-/* global AuthSDK */
+// Example: Fetch, update, and logout user profile using apiRequest utility
+import { apiRequest, showGlobalError } from "../Script/utils.js";
+import { logout as authLogout } from "../Script/auth.js";
 
 document.addEventListener("DOMContentLoaded", async function () {
   const profileContainer = document.getElementById("profile-container");
@@ -77,27 +77,18 @@ document.addEventListener("DOMContentLoaded", async function () {
 
       try {
         // Ensure AuthSDK exists before calling its methods
-        if (typeof AuthSDK !== "undefined" && AuthSDK.authFetch) {
-          const res = await AuthSDK.authFetch("/api/v1/users/me/", {
-            method: "PATCH",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              first_name: firstName,
-              last_name: lastName,
-              learning_goal: learningGoal,
-            }),
-          });
-          if (!res.ok) {
-            const err = await res.json().catch(() => ({}));
-            throw new Error(err.detail || "Profile update failed");
-          }
-          const updatedProfile = await res.json();
-          renderProfileForm(updatedProfile);
-          msgDiv.textContent = "Profile updated successfully!";
-          msgDiv.className = "success-message";
-        } else {
-          throw new Error("AuthSDK is not available.");
-        }
+        // Use unified apiRequest utility for backend integration
+        const updatedProfile = await apiRequest("users/me/", {
+          method: "PATCH",
+          body: JSON.stringify({
+            first_name: firstName,
+            last_name: lastName,
+            learning_goal: learningGoal,
+          }),
+        });
+        renderProfileForm(updatedProfile);
+        msgDiv.textContent = "Profile updated successfully!";
+        msgDiv.className = "success-message";
       } catch (error) {
         msgDiv.textContent = error.message || "Could not update profile.";
         msgDiv.className = "error-message";
@@ -111,10 +102,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       logoutBtn.disabled = true;
       logoutBtn.textContent = "Logging out...";
       try {
-        // Ensure AuthSDK exists before calling logout
-        if (typeof AuthSDK !== "undefined" && AuthSDK.logout) {
-          await AuthSDK.logout();
-        }
+        await authLogout();
         window.location.href = "signin.html";
       } catch {
         window.location.href = "signin.html";
@@ -124,18 +112,9 @@ document.addEventListener("DOMContentLoaded", async function () {
 
   try {
     // Ensure AuthSDK exists before calling its methods
-    if (typeof AuthSDK !== "undefined" && AuthSDK.authFetch) {
-      // Fetch the authenticated user's profile
-      const res = await AuthSDK.authFetch("/api/v1/users/me/");
-      if (!res.ok) {
-        throw new Error("Failed to fetch profile");
-      }
-      const profile = await res.json();
-
-      renderProfileForm(profile);
-    } else {
-      throw new Error("AuthSDK is not available.");
-    }
+    // Use unified apiRequest utility for backend integration
+    const profile = await apiRequest("users/me/");
+    renderProfileForm(profile);
   } catch (error) {
     profileContainer.innerHTML = "";
     const errorDiv = document.createElement("div");
@@ -143,6 +122,11 @@ document.addEventListener("DOMContentLoaded", async function () {
     errorDiv.textContent =
       error.message || "Could not load profile. Please sign in again.";
     profileContainer.appendChild(errorDiv);
+
+    // Show global error notification for better UX
+    showGlobalError(
+      error.message || "Could not load profile. Please sign in again.",
+    );
 
     // Optionally redirect to sign-in if unauthorized
     // setTimeout(() => window.location.href = 'signin.html', 2000);

@@ -1,5 +1,5 @@
 // Gamification module for user points, badges, leaderboards, streaks, and achievements
-import { apiRequest } from "../Config/auth-sdk.js";
+import { apiRequest } from "../Script/utils.js";
 
 export async function loadUserGamification() {
   try {

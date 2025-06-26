@@ -1,7 +1,8 @@
 // Improved Sign-in page functionality with UI/UX enhancements
-// Assumes AuthSDK is loaded globally via <script src="../Config/auth-sdk.js"></script>
-
-import { apiRequest } from "../Config/auth-sdk.js";
+// Modern login using new auth.js module
+import { login } from "../Script/auth.js";
+import { handleSocialLogin } from "./social-login.js";
+import { showGlobalError } from "../Script/utils.js";
 
 document.addEventListener("DOMContentLoaded", function () {
   const signinForm = document.getElementById("signin-form-element");
@@ -103,14 +104,7 @@ document.addEventListener("DOMContentLoaded", function () {
     submitBtn.textContent = "Signing In...";
 
     try {
-      await apiRequest("auth/login/", {
-        method: "POST",
-        body: JSON.stringify({
-          username: email,
-          password: password,
-        }),
-        csrf: true,
-      });
+      await login(email, password);
       showSigninMessage("Welcome! Redirecting...", "success");
       setTimeout(() => {
         window.location.href = "main.html";
@@ -118,6 +112,7 @@ document.addEventListener("DOMContentLoaded", function () {
     } catch (error) {
       errorMsg.textContent = error.message;
       showSigninMessage(error.message || "Login failed", "error");
+      showGlobalError(error.message || "Login failed");
     }
 
     submitBtn.disabled = false;
@@ -126,13 +121,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Social sign-in buttons
   if (googleBtn) {
-    googleBtn.addEventListener("click", () => {
-      window.location.href = "/api/v1/auth/oauth2/login/google/";
+    import("../Script/social-login.js").then(({ handleSocialLogin }) => {
+      googleBtn.addEventListener("click", () => handleSocialLogin("google"));
     });
   }
   if (githubBtn) {
-    githubBtn.addEventListener("click", () => {
-      window.location.href = "/api/v1/auth/oauth2/login/github/";
+    import("../Script/social-login.js").then(({ handleSocialLogin }) => {
+      githubBtn.addEventListener("click", () => handleSocialLogin("github"));
     });
   }
 
