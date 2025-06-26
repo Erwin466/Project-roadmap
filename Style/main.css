@@ -1,11 +1,31 @@
 :root {
     --maincolor: rgb(63, 5, 70);
-    --maingrad: linear-gradient(45deg,rgb(9, 61, 129),rgb(5, 9, 66));
+    --maingrad: linear-gradient(45deg, rgb(9, 61, 129), rgb(5, 9, 66));
     --mainfont: "Play", sans-serif;
     --textcolor: white;
 }
 
-*{
+/* Feedback UI styles */
+.error-message {
+    color: #ef4444;
+    background: #fff0f0;
+    border: 1px solid #ef4444;
+    padding: 8px 12px;
+    border-radius: 6px;
+    margin-bottom: 12px;
+    font-size: 1rem;
+}
+.success-message {
+    color: #22c55e;
+    background: #f0fff4;
+    border: 1px solid #22c55e;
+    padding: 8px 12px;
+    border-radius: 6px;
+    margin-bottom: 12px;
+    font-size: 1rem;
+}
+
+* {
     margin: 0;
     padding: 0;
     font-family: var(--mainfont);
@@ -138,9 +158,9 @@ body {
 #lottieElement2 {
     display: none;
     position: absolute;
-    top: 500px ;
+    top: 500px;
     left: 100px;
-    transition-duration: .1;
+    transition-duration: 0.1;
     z-index: 1;
     transform: rotate(180deg);
     animation-duration: 1s;
@@ -182,7 +202,6 @@ body {
     padding: 10px 30px 10px 30px;
     color: white;
     z-index: 2;
-
 }
 #middle-top #section-back::after {
     content: "";
@@ -195,7 +214,6 @@ body {
     background-image: var(--maingrad);
     transform: rotate(180deg);
     z-index: 2;
-
 }
 #middle-top #section-back::before {
     content: "";
@@ -208,7 +226,6 @@ body {
     background-image: var(--maingrad);
     transform: rotate(180deg);
     z-index: 2;
-
 }
 #middle-top #maintitle {
     position: relative;
@@ -220,12 +237,11 @@ body {
     color: transparent;
     background-clip: text;
     z-index: 2;
-
 }
 #middle-top #title-1,
 #middle-top #title-2,
 #middle-top #title-3,
-#middle-top #title-4{
+#middle-top #title-4 {
     position: relative;
     top: 190px;
     margin-bottom: 10px;
@@ -237,7 +253,6 @@ body {
     color: transparent;
     background-clip: text;
     z-index: 2;
-
 }
 #middle-top #title-1::before,
 #middle-top #title-2::before,
@@ -250,11 +265,10 @@ body {
     border: 2px solid var(--maincolor);
     background-color: transparent;
     z-index: 2;
-
 }
 #middle-top #subtitle-1,
 #middle-top #subtitle-2,
-#middle-top #subtitle-3, 
+#middle-top #subtitle-3,
 #middle-top #subtitle-4 {
     position: relative;
     top: 190px;
@@ -266,142 +280,133 @@ body {
     color: transparent;
     background-clip: text;
     z-index: 2;
-
 }
 
-
-
-
-
-
-
 @keyframes middle-top-forward {
-    0%{
-        top: 200px ;
+    0% {
+        top: 200px;
         left: 100px;
         transform: rotate(180deg);
         scale: 0;
     }
-    10%{
+    10% {
         opacity: 0;
-        top: 600px ;
+        top: 600px;
         left: 100px;
         transform: rotate(175deg);
     }
-    20%{
-        top: 700px ;
+    20% {
+        top: 700px;
         left: 200px;
         transform: rotate(170deg);
     }
-    30%{
-        top: 800px ;
+    30% {
+        top: 800px;
         left: 300px;
         transform: rotate(165deg);
     }
-    40%{
+    40% {
         opacity: 1;
-        top: 900px ;
+        top: 900px;
         left: 400px;
         transform: rotate(160deg);
     }
-    50%{
-        top: 1000px ;
+    50% {
+        top: 1000px;
         left: 500px;
         transform: rotate(155deg);
     }
-    60%{
-        top: 1100px ;
+    60% {
+        top: 1100px;
         left: 600px;
         transform: rotate(140deg);
     }
-    70%{
-        top: 1200px ;
+    70% {
+        top: 1200px;
         left: 700px;
         transform: rotate(120deg);
     }
-    80%{
-        top: 1300px ;
+    80% {
+        top: 1300px;
         left: 800px;
         transform: rotate(100deg);
     }
-    90%{
-        top: 1400px ;
+    90% {
+        top: 1400px;
         left: 900px;
         transform: rotate(80deg);
     }
-    100%{
-        top: 1300px ;
+    100% {
+        top: 1300px;
         left: 1200px;
         transform: rotate(60deg);
         scale: 1.5;
     }
-
 }
 
 @keyframes middle-top-reverse {
-    100%{
-        top: 200px ;
+    100% {
+        top: 200px;
         left: 100px;
         transform: rotate(180deg);
         scale: 0;
     }
-    90%{
+    90% {
         opacity: 0;
-        top: 600px ;
+        top: 600px;
         left: 100px;
         transform: rotate(175deg);
     }
-    80%{
-        top: 700px ;
+    80% {
+        top: 700px;
         left: 200px;
         transform: rotate(170deg);
     }
-    70%{
-        top: 800px ;
+    70% {
+        top: 800px;
         left: 300px;
         transform: rotate(165deg);
     }
-    60%{
+    60% {
         opacity: 1;
-        top: 900px ;
+        top: 900px;
         left: 400px;
         transform: rotate(160deg);
     }
-    50%{
-        top: 1000px ;
+    50% {
+        top: 1000px;
         left: 500px;
         transform: rotate(155deg);
     }
-    40%{
-        top: 1100px ;
+    40% {
+        top: 1100px;
         left: 600px;
         transform: rotate(140deg);
     }
-    30%{
-        top: 1200px ;
+    30% {
+        top: 1200px;
         left: 700px;
         transform: rotate(120deg);
     }
-    20%{
-        top: 1300px ;
+    20% {
+        top: 1300px;
         left: 800px;
         transform: rotate(100deg);
     }
-    10%{
-        top: 1400px ;
+    10% {
+        top: 1400px;
         left: 900px;
         transform: rotate(80deg);
     }
-    0%{
-        top: 1300px ;
+    0% {
+        top: 1300px;
         left: 1200px;
         transform: rotate(60deg);
         scale: 1.5;
     }
-
 }
 
-/* 
+/*
    RESPONSIVE DESIGN
 */
 
@@ -411,7 +416,7 @@ body {
         width: 90%;
         max-width: 1000px;
     }
-    
+
     #middle-top #maintitle,
     #middle-top #title-1,
     #middle-top #title-2,
@@ -424,7 +429,7 @@ body {
         width: 90%;
         max-width: 1000px;
     }
-    
+
     #middle-top #section-back::after,
     #middle-top #section-back::before {
         width: 40vw;
@@ -440,49 +445,49 @@ body {
         padding: 10px;
         gap: 15px;
     }
-    
+
     #nav #links {
         width: 100%;
         text-align: center;
     }
-    
+
     #nav a {
         font-size: 16px;
         padding: 8px 15px;
         display: inline-block;
         margin: 0 5px;
     }
-    
+
     #sign {
         margin-left: 0;
         width: 100%;
         text-align: center;
     }
-    
+
     #sign a {
         margin: 0 5px;
         padding: 8px 20px;
         font-size: 14px;
     }
-    
+
     #top #title {
         font-size: 72px;
         text-align: center;
         padding: 0 20px;
     }
-    
+
     #top #subtitle {
         font-size: 20px;
         padding: 0 20px;
         text-align: center;
     }
-    
+
     #middle-top #maintitle {
         font-size: 48px;
         text-align: center;
         padding: 0 20px;
     }
-    
+
     #middle-top #title-1,
     #middle-top #title-2,
     #middle-top #title-3,
@@ -491,7 +496,7 @@ body {
         text-align: center;
         padding: 0 20px;
     }
-    
+
     #middle-top #subtitle-1,
     #middle-top #subtitle-2,
     #middle-top #subtitle-3,
@@ -500,12 +505,12 @@ body {
         padding: 0 20px;
         text-align: center;
     }
-    
+
     #middle-top #section-back::after,
     #middle-top #section-back::before {
         width: 25vw;
     }
-    
+
     #lottieElement1,
     #lottieElement2 {
         width: 40vw !important;
@@ -519,39 +524,39 @@ body {
         padding: 5px;
         gap: 10px;
     }
-    
+
     #nav a {
         font-size: 14px;
         padding: 6px 12px;
         margin: 0 2px;
     }
-    
+
     #sign a {
         padding: 6px 15px;
         font-size: 12px;
     }
-    
+
     #top #title {
         font-size: 48px;
         padding: 0 15px;
     }
-    
+
     #top #subtitle {
         font-size: 16px;
         padding: 0 15px;
         line-height: 1.4;
     }
-    
+
     #middle-top #section-name {
         font-size: 18px;
         padding: 8px 20px;
     }
-    
+
     #middle-top #maintitle {
         font-size: 36px;
         padding: 0 15px;
     }
-    
+
     #middle-top #title-1,
     #middle-top #title-2,
     #middle-top #title-3,
@@ -560,7 +565,7 @@ body {
         padding: 0 15px;
         margin-bottom: 15px;
     }
-    
+
     #middle-top #subtitle-1,
     #middle-top #subtitle-2,
     #middle-top #subtitle-3,
@@ -570,23 +575,23 @@ body {
         margin-bottom: 30px;
         line-height: 1.5;
     }
-    
+
     #middle-top #section-back::after,
     #middle-top #section-back::before {
         width: 15vw;
     }
-    
+
     #lottieElement1,
     #lottieElement2 {
         width: 50vw !important;
         max-width: 250px;
     }
-    
+
     #top {
         height: 100vh;
         min-height: 600px;
     }
-    
+
     #videoBackground {
         height: 100vh;
         min-height: 600px;
@@ -599,33 +604,33 @@ body {
         font-size: 12px;
         padding: 4px 8px;
     }
-    
+
     #top #title {
         font-size: 36px;
     }
-    
+
     #top #subtitle {
         font-size: 14px;
     }
-    
+
     #middle-top #maintitle {
         font-size: 28px;
     }
-    
+
     #middle-top #title-1,
     #middle-top #title-2,
     #middle-top #title-3,
     #middle-top #title-4 {
         font-size: 20px;
     }
-    
+
     #middle-top #subtitle-1,
     #middle-top #subtitle-2,
     #middle-top #subtitle-3,
     #middle-top #subtitle-4 {
         font-size: 14px;
     }
-    
+
     #middle-top #section-back::after,
     #middle-top #section-back::before {
         display: none;

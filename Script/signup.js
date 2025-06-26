@@ -1,4 +1,5 @@
 // Signup Form Functionality
+// Assumes AuthSDK is loaded globally via <script src="../Config/auth-sdk.js"></script>
 document.addEventListener('DOMContentLoaded', function() {
     const signupForm = document.getElementById('signup-form-element');
     const passwordInput = document.getElementById('password');
@@ -20,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Lowercase check
         if (/[a-z]/.test(password)) strength += 25;
         // Number or special character check
-        if (/[\d\W]/.test(password)) strength += 25;
+        if (/\d|\W/.test(password)) strength += 25;
 
         // Determine strength level and color
         if (strength <= 25) {
@@ -44,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
     passwordInput.addEventListener('input', function() {
         const password = this.value;
         const result = checkPasswordStrength(password);
-        
+
         strengthBar.style.width = result.strength + '%';
         strengthBar.style.backgroundColor = result.color;
         strengthText.textContent = password.length > 0 ? result.strengthLevel : 'Password strength';
@@ -55,9 +56,88 @@ document.addEventListener('DOMContentLoaded', function() {
     confirmPasswordInput.addEventListener('input', function() {
         const password = passwordInput.value;
         const confirmPassword = this.value;
-        
+
         if (confirmPassword.length > 0) {
             if (password === confirmPassword) {
+                confirmPasswordInput.style.borderColor = '#22c55e';
+            } else {
+                confirmPasswordInput.style.borderColor = '#ef4444';
+            }
+        } else {
+            confirmPasswordInput.style.borderColor = '';
+        }
+    });
+
+    // Signup form submission with AuthSDK integration
+    // Helper to show inline messages
+    function showSignupMessage(msg, type) {
+        let msgDiv = document.getElementById('signup-msg');
+        if (!msgDiv) {
+            msgDiv = document.createElement('div');
+            msgDiv.id = 'signup-msg';
+            msgDiv.className = type === 'success' ? 'success-message' : 'error-message';
+            signupForm.prepend(msgDiv);
+        }
+        msgDiv.textContent = msg;
+        msgDiv.className = type === 'success' ? 'success-message' : 'error-message';
+    }
+
+    const submitBtn = signupForm.querySelector('.signup-btn') || signupForm.querySelector('button[type="submit"]');
+
+    signupForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+
+        // Remove previous messages
+        let msgDiv = document.getElementById('signup-msg');
+        if (msgDiv) msgDiv.remove();
+
+        const email = document.getElementById('email').value.trim();
+        const password = passwordInput.value;
+        const confirmPassword = confirmPasswordInput.value;
+        const firstName = document.getElementById('firstName') ? document.getElementById('firstName').value.trim() : '';
+        const lastName = document.getElementById('lastName') ? document.getElementById('lastName').value.trim() : '';
+        const learningGoal = document.getElementById('learningGoal') ? document.getElementById('learningGoal').value : '';
+
+        if (password !== confirmPassword) {
+            showSignupMessage('Passwords do not match.', 'error');
+            confirmPasswordInput.focus();
+            return;
+        }
+
+        submitBtn.disabled = true;
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = 'Creating Account...';
+
+        try {
+            // Register user
+            const res = await fetch('/api/auth/register/', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    email,
+                    password,
+                    first_name: firstName,
+                    last_name: lastName,
+                    learning_goal: learningGoal
+                }),
+            });
+            if (!res.ok) {
+                const err = await res.json().catch(() => ({}));
+                throw new Error(err.detail || 'Registration failed');
+            }
+            // Auto-login after successful registration
+            await AuthSDK.login(email, password);
+            showSignupMessage('Account created! Redirecting...', 'success');
+            setTimeout(() => {
+                window.location.href = 'main.html';
+            }, 1000);
+        } catch (error) {
+            showSignupMessage(error.message || "Sign up failed", 'error');
+        }
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalText;
+    });
+});
                 this.style.borderColor = '#22c55e';
                 this.classList.remove('error');
                 this.classList.add('success');
@@ -176,19 +256,19 @@ document.addEventListener('DOMContentLoaded', function() {
     // Handle form submission
     signupForm.addEventListener('submit', function(e) {
         e.preventDefault();
-        
+
         const validation = validateForm();
-        
+
         if (validation.isValid) {
             // Remove any existing error messages
             showErrors([]);
-            
+
             // Show loading state
             const submitBtn = this.querySelector('.signup-btn');
             const originalText = submitBtn.textContent;
             submitBtn.textContent = 'Creating Account...';
             submitBtn.disabled = true;
-            
+
             // Simulate API call
             setTimeout(() => {
                 // Here you would normally send data to your backend
@@ -200,9 +280,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     learningGoal: document.getElementById('learningGoal').value,
                     newsletter: document.getElementById('newsletter').checked
                 };
-                
+
                 console.log('Signup data:', formData);
-                
+
                 // Show success message
                 showSuccess();
             }, 1500);
@@ -216,12 +296,12 @@ document.addEventListener('DOMContentLoaded', function() {
         btn.addEventListener('click', function(e) {
             e.preventDefault();
             const provider = this.classList.contains('google-btn') ? 'Google' : 'GitHub';
-            
+
             // Add loading state
             const originalText = this.innerHTML;
             this.innerHTML = `<span>Connecting to ${provider}...</span>`;
             this.disabled = true;
-            
+
             // Simulate social login
             setTimeout(() => {
                 // Here you would integrate with actual OAuth providers
@@ -237,7 +317,7 @@ document.addEventListener('DOMContentLoaded', function() {
     emailInput.addEventListener('blur', function() {
         const email = this.value.trim();
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        
+
         if (email && !emailRegex.test(email)) {
             this.style.borderColor = '#ef4444';
             this.classList.add('error');
@@ -262,7 +342,7 @@ document.addEventListener('DOMContentLoaded', function() {
         input.addEventListener('focus', function() {
             this.parentElement.classList.add('focused');
         });
-        
+
         input.addEventListener('blur', function() {
             if (!this.value) {
                 this.parentElement.classList.remove('focused');
