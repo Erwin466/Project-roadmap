@@ -106,11 +106,20 @@ document.addEventListener("DOMContentLoaded", function () {
     const lastName = document.getElementById("lastName")
       ? document.getElementById("lastName").value.trim()
       : "";
-    const learningGoal = document.getElementById("learningGoal")
-      ? document.getElementById("learningGoal").value
-      : "";
+    // const learningGoal = document.getElementById("learningGoal")
+    //   ? document.getElementById("learningGoal").value
+    //   : "";
 
-    if (password !== confirmPassword) {
+    // Use constant-time comparison to prevent timing attacks
+    function constantTimeEquals(a, b) {
+      if (a.length !== b.length) return false;
+      let result = 0;
+      for (let i = 0; i < a.length; i++) {
+        result |= a.charCodeAt(i) ^ b.charCodeAt(i);
+      }
+      return result === 0;
+    }
+    if (!constantTimeEquals(password, confirmPassword)) {
       showSignupMessage("Passwords do not match.", "error");
       confirmPasswordInput.focus();
       return;
@@ -156,7 +165,7 @@ document.addEventListener("DOMContentLoaded", function () {
         : "GitHub";
 
       // Add loading state
-      const originalText = this.innerHTML;
+      // const originalText = this.innerHTML;
       this.innerHTML = `<span>Connecting to ${provider}...</span>`;
       this.disabled = true;
 

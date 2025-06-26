@@ -98,7 +98,7 @@ function initializeStartLearningButtons() {
       e.preventDefault();
 
       // Add loading animation
-      const originalText = button.textContent;
+      // const originalText = button.textContent;
       button.style.background = "linear-gradient(135deg, #34a853, #4285f4)";
       button.textContent = "Loading...";
       button.style.pointerEvents = "none";
@@ -159,28 +159,10 @@ function initializeScrollEffects() {
 }
 
 // Intersection Observer for card animations
-function initializeIntersectionObserver() {
-  const cards = document.querySelectorAll(".roadmap-card");
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = "1";
-          entry.target.style.transform = "translateY(0)";
-        }
-      });
-    },
-    {
-      threshold: 0.1,
-      rootMargin: "0px 0px -50px 0px",
-    },
-  );
-
-  cards.forEach((card) => {
-    observer.observe(card);
-  });
-}
+// function initializeIntersectionObserver() {
+//   // Placeholder for intersection observer logic
+//   // Uncomment and implement if needed for card animations
+// }
 
 // Add pulse animation keyframes
 const style = document.createElement("style");
@@ -248,8 +230,8 @@ const loading = document.getElementById("loading");
 const errorMsg = document.getElementById("error-msg");
 const searchInput = document.getElementById("search-input");
 const filterForm = document.getElementById("filter-form");
-let currentPage = 1;
-let totalPages = 1;
+/* let currentPage = 1; // Used for pagination, update as needed
+let totalPages = 1; // Used for pagination, update as needed */
 
 async function loadCourses(page = 1, search = "", filters = {}) {
   loading.style.display = "block";
@@ -263,8 +245,8 @@ async function loadCourses(page = 1, search = "", filters = {}) {
     });
     const data = await apiRequest(url);
     renderCourses(data.results);
-    currentPage = data.page;
-    totalPages = data.total_pages;
+    // currentPage = data.page;
+    // totalPages = data.total_pages;
     renderPagination();
   } catch (err) {
     errorMsg.textContent = err.message;
@@ -313,9 +295,11 @@ function getFilters() {
 // Gamification integration
 async function loadUserGamification() {
   try {
-    const data = await apiRequest("gamification/profile/");
+    await apiRequest("gamification/profile/");
     // ...render user points, badges, etc...
-  } catch {}
+  } catch (err) {
+    // handle error if needed
+  }
 }
 
 // Export functions for potential external use

@@ -199,7 +199,6 @@ function initializeLessonButtons() {
       const lessonTitle = lessonItem.querySelector("h5").textContent;
 
       // Add loading state
-      const originalText = button.textContent;
       button.textContent = "Loading...";
       button.style.pointerEvents = "none";
 
@@ -226,26 +225,29 @@ function initializeActionButtons() {
   const enrollBtn = document.getElementById("enroll-btn");
   const previewBtn = document.getElementById("preview-btn");
 
-  enrollBtn.addEventListener("click", function () {
-    // Add enrollment animation
-    const originalText = this.textContent;
-    this.textContent = "Processing...";
-    this.style.pointerEvents = "none";
+  if (enrollBtn) {
+    enrollBtn.addEventListener("click", function () {
+      // Add enrollment animation
+      this.textContent = "Processing...";
+      this.style.pointerEvents = "none";
 
-    setTimeout(() => {
+      setTimeout(() => {
+        alert(
+          "Enrollment successful! Welcome to your learning journey.\n\nYou would be redirected to the course dashboard or payment page.",
+        );
+        this.textContent = "Enrolled ✓";
+        this.style.background = "linear-gradient(135deg, #4caf50, #8bc34a)";
+      }, 2000);
+    });
+  }
+
+  if (previewBtn) {
+    previewBtn.addEventListener("click", function () {
       alert(
-        "Enrollment successful! Welcome to your learning journey.\n\nYou would be redirected to the course dashboard or payment page.",
+        "Opening course preview...\n\nThis would show a modal or redirect to preview content.",
       );
-      this.textContent = "Enrolled ✓";
-      this.style.background = "linear-gradient(135deg, #4caf50, #8bc34a)";
-    }, 2000);
-  });
-
-  previewBtn.addEventListener("click", function () {
-    alert(
-      "Opening course preview...\n\nThis would show a modal or redirect to preview content.",
-    );
-  });
+    });
+  }
 }
 
 // Progress management
@@ -262,21 +264,25 @@ async function loadCourseDetail() {
     renderCourse(course);
     loadProgress();
   } catch (err) {
-    lessonContainer.innerHTML = `<p>${err.message}</p>`;
+    // Ensure lessonContainer exists before using
+    const lessonContainer = document.getElementById("lesson-container");
+    if (lessonContainer) {
+      lessonContainer.innerHTML = `<p>${err.message}</p>`;
+    }
   }
 }
 
-function renderCourse(course) {
+function renderCourse() {
   // ...render course title, description, lessons...
 }
 
 async function loadProgress() {
   try {
-    const progress = await apiRequest(
-      `courses/progress/?course_id=${window.courseId}`,
-    );
+    await apiRequest(`courses/progress/?course_id=${window.courseId}`);
     // ...update progress bar, show completed lessons...
-  } catch {}
+  } catch (err) {
+    // Optionally handle error, e.g., show a message or log
+  }
 }
 
 function updateProgress(increment) {
@@ -310,19 +316,23 @@ function celebrateProgress() {
   }, 300);
 }
 
-enrollBtn.addEventListener("click", async () => {
-  try {
-    await apiRequest("courses/enrollments/", {
-      method: "POST",
-      body: JSON.stringify({ course_id: window.courseId }),
-    });
-    loadProgress();
-  } catch (err) {
-    alert(err.message);
-  }
-});
+// Ensure enrollBtn exists before adding event listener
+const enrollBtnEvent = document.getElementById("enroll-btn");
+if (enrollBtnEvent) {
+  enrollBtnEvent.addEventListener("click", async () => {
+    try {
+      await apiRequest("courses/enrollments/", {
+        method: "POST",
+        body: JSON.stringify({ course_id: window.courseId }),
+      });
+      loadProgress();
+    } catch (err) {
+      alert(err.message);
+    }
+  });
+}
 
-async function completeLesson(lessonId) {
+/* Unused: async function completeLesson(lessonId) {
   try {
     await apiRequest("courses/completion/", {
       method: "POST",
@@ -333,13 +343,15 @@ async function completeLesson(lessonId) {
   } catch (err) {
     alert(err.message);
   }
-}
+} */
 
 async function loadGamification() {
   try {
-    const data = await apiRequest("gamification/profile/");
+    await apiRequest("gamification/profile/");
     // ...render points, badges, etc...
-  } catch {}
+  } catch (err) {
+    // Optionally handle error, e.g., show a message or log
+  }
 }
 
 // Keyboard navigation
@@ -357,7 +369,7 @@ let ticking = false;
 
 function updateScrollEffects() {
   const scrolled = window.pageYOffset;
-  const nav = document.getElementById("nav");
+  // const nav = document.getElementById("nav");
 
   // Keep navigation transparent like main page (no background change on scroll)
   // No background changes needed - nav should stay transparent

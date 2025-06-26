@@ -2,7 +2,7 @@
 import { apiRequest } from "../Config/auth-sdk.js";
 
 export async function loadActivityFeed() {
-  const data = await apiRequest("social/feed/");
+  await apiRequest("social/feed/");
   // ...render activity feed...
 }
 
@@ -33,12 +33,12 @@ export async function followUser(userId) {
 }
 
 export async function loadFollowers() {
-  const data = await apiRequest("social/followers/");
+  await apiRequest("social/followers/");
   // ...render followers...
 }
 
 export async function loadDiscussions() {
-  const data = await apiRequest("social/discussions/");
+  await apiRequest("social/discussions/");
   // ...render discussion forums...
 }
 // ...other social utilities...

@@ -1,5 +1,3 @@
-import { apiRequest } from "../Config/auth-sdk.js";
-
 // Helper to check authentication state using AuthSDK
 function checkAuthState() {
   if (window.AuthSDK && typeof window.AuthSDK.getTokens === "function") {

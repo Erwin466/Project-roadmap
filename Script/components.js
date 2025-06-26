@@ -1,9 +1,10 @@
 // Simple UI component system for modals, notifications, loading, progress, forms
-export function Modal({ title, content, onClose }) {
+
+export function Modal() {
   // ...create and show modal...
 }
 
-export function Notification({ message, type }) {
+export function Notification() {
   // ...create and show notification...
 }
 
@@ -11,23 +12,23 @@ export function LoadingSpinner() {
   // ...return loading spinner element...
 }
 
-export function ProgressBar({ value, max }) {
+export function ProgressBar() {
   // ...return progress bar element...
 }
 
-export function FormField({ label, type, value, onInput }) {
+export function FormField() {
   // ...return form field with label and ARIA attributes...
 }
 
-export function GamificationBadge({ badge, unlocked }) {
+export function GamificationBadge() {
   // ...return badge element...
 }
 
-export function CourseCard({ course }) {
+export function CourseCard() {
   // ...return course card element...
 }
 
-export function SocialButton({ type, onClick }) {
+export function SocialButton() {
   // ...return like/share/follow button...
 }
 // ...other reusable components...

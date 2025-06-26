@@ -261,7 +261,4 @@ document.addEventListener("DOMContentLoaded", () => {
   window.animatedBackground = new AnimatedBackground();
 });
 
-// Export for module systems
-if (typeof module !== "undefined" && module.exports) {
-  module.exports = AnimatedBackground;
-}
+// (CommonJS export removed for browser compatibility)

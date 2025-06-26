@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const signinForm = document.getElementById("signin-form-element");
   const emailInput = document.getElementById("email");
   const passwordInput = document.getElementById("password");
-  const rememberCheckbox = document.getElementById("remember");
+  // const rememberCheckbox = document.getElementById("remember"); // Unused, remove or implement if needed
   const submitBtn =
     signinForm.querySelector(".signin-btn") ||
     signinForm.querySelector('button[type="submit"]');
@@ -103,7 +103,7 @@ document.addEventListener("DOMContentLoaded", function () {
     submitBtn.textContent = "Signing In...";
 
     try {
-      const data = await apiRequest("auth/login/", {
+      await apiRequest("auth/login/", {
         method: "POST",
         body: JSON.stringify({
           username: email,

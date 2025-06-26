@@ -37,11 +37,11 @@ export function throttle(fn, limit) {
   };
 }
 
-export function showNotification(msg, type = "info") {
-  // ...show notification UI...
+export function showNotification(_msg) {
+  // Placeholder for notification UI logic
 }
 
-export function trapFocus(element) {
-  // ...accessibility helper for modals...
+export function trapFocus() {
+  // Placeholder for accessibility helper for modals
 }
 // ...other utilities...

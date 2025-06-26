@@ -9,34 +9,38 @@ export async function loadUserGamification() {
     renderStreak(data.streak);
     renderAchievements(data.achievements);
   } catch (err) {
-    // ...handle error...
+    // handle error if needed
   }
 }
 
-function renderPoints(points) {
-  // ...update points display...
+function renderPoints() {
+  // Placeholder for updating points display
 }
-function renderBadges(badges) {
-  // ...update badge collection UI...
+function renderBadges() {
+  // Placeholder for updating badge collection UI
 }
-function renderStreak(streak) {
-  // ...update streak counter...
+function renderStreak() {
+  // Placeholder for updating streak counter
 }
-function renderAchievements(achievements) {
-  // ...show achievement notifications...
+function renderAchievements() {
+  // Placeholder for showing achievement notifications
 }
 
 export async function loadLeaderboard() {
   try {
-    const data = await apiRequest("gamification/leaderboard/");
+    await apiRequest("gamification/leaderboard/");
     // ...render leaderboard...
-  } catch {}
+  } catch (err) {
+    // handle error if needed
+  }
 }
 
 export async function loadQuests() {
   try {
-    const data = await apiRequest("gamification/quests/");
+    await apiRequest("gamification/quests/");
     // ...render quests/challenges...
-  } catch {}
+  } catch (err) {
+    // handle error if needed
+  }
 }
 // ...other gamification utilities...
