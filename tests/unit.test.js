@@ -1,9 +1,9 @@
-const { apiRequest } = require("../Script/utils.js");
-const {
+import {
+  apiRequest,
   sanitizeInput,
   validateEmail,
   validatePasswordStrength,
-} = require("../Script/utils.js");
+} from "../Script/utils.js";
 
 describe("Auth SDK", () => {
   test("should throw on network error", async () => {

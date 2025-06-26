@@ -1,5 +1,6 @@
 {
   "name": "project-roadmap-frontend",
+  "type": "module",
   "version": "1.0.0",
   "description": "Frontend for Roadmap Learning Platform with gamification, shop, and social features.",
   "main": "Script/main.js",
