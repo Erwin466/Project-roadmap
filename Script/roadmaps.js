@@ -29,7 +29,7 @@ function initializeCardAnimations() {
     const cards = document.querySelectorAll('.roadmap-card');
     
     cards.forEach(card => {
-        // Add tilt effect on mouse move
+        // Add tilt effect on mouse move for circular cards
         card.addEventListener('mousemove', function(e) {
             const rect = card.getBoundingClientRect();
             const x = e.clientX - rect.left;
@@ -38,23 +38,23 @@ function initializeCardAnimations() {
             const centerX = rect.width / 2;
             const centerY = rect.height / 2;
             
-            const rotateX = (y - centerY) / 10;
-            const rotateY = (centerX - x) / 10;
+            const rotateX = (y - centerY) / 15;
+            const rotateY = (centerX - x) / 15;
             
-            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-5px)`;
+            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-10px) scale(1.05)`;
         });
         
         // Reset transform on mouse leave
         card.addEventListener('mouseleave', function() {
-            card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)';
+            card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px) scale(1)';
         });
         
-        // Add click animation
+        // Add click animation for circular cards
         card.addEventListener('click', function(e) {
-            if (!e.target.closest('.start-learning-btn')) {
-                card.style.transform += ' scale(0.98)';
+            if (!e.target.closest('.start-btn')) {
+                card.style.transform += ' scale(0.95)';
                 setTimeout(() => {
-                    card.style.transform = card.style.transform.replace(' scale(0.98)', '');
+                    card.style.transform = card.style.transform.replace(' scale(0.95)', '');
                 }, 150);
             }
         });
@@ -83,7 +83,7 @@ function initializeSkillTagInteractions() {
 
 // Start Learning button functionality
 function initializeStartLearningButtons() {
-    const startButtons = document.querySelectorAll('.start-learning-btn');
+    const startButtons = document.querySelectorAll('.start-btn');
     
     startButtons.forEach(button => {
         button.addEventListener('click', function(e) {
@@ -95,19 +95,30 @@ function initializeStartLearningButtons() {
             button.textContent = 'Loading...';
             button.style.pointerEvents = 'none';
             
-            // Simulate loading and redirect
+            // Get roadmap type from card title
+            const cardTitle = this.closest('.roadmap-card').querySelector('.card-title').textContent;
+            const roadmapType = getRoadmapType(cardTitle);
+            
+            // Simulate loading and redirect to detailed roadmap
             setTimeout(() => {
-                // You can replace this with actual navigation logic
-                const cardTitle = this.closest('.roadmap-card').querySelector('.card-title').textContent;
-                alert(`Starting ${cardTitle} roadmap! This would navigate to the detailed roadmap page.`);
-                
-                // Reset button
-                button.style.background = 'linear-gradient(135deg, #4285f4, #00bcd4)';
-                button.textContent = originalText;
-                button.style.pointerEvents = 'auto';
-            }, 1500);
+                window.location.href = `roadmap-detail.html?type=${roadmapType}`;
+            }, 1000);
         });
     });
+}
+
+// Helper function to convert card title to roadmap type
+function getRoadmapType(title) {
+    const typeMap = {
+        'AI/ML Engineer': 'ai-ml-engineer',
+        'Web Scraping Specialist': 'web-scraping',
+        'AI Student': 'ai-student',
+        'Freelance Software Developer': 'freelance-dev',
+        'Full Stack Web Developer': 'fullstack',
+        'Mobile App Developer': 'mobile-dev'
+    };
+    
+    return typeMap[title] || 'ai-ml-engineer';
 }
 
 // Scroll effects

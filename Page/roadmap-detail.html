@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title id="roadmap-title">AI/ML Engineer Roadmap</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='../Style/roadmap-detail-new.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='../Style/background.css'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Play:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="roadmap-detail-container">
+        <!-- Navigation -->
+        <div id="nav">
+            <div id="links">
+                <a href="main.html" id="main">Main</a>
+                <a href="roadmaps.html" id="roadmaps">Roadmaps</a>
+                <a href="#skills" id="skills">Skills</a>
+                <a href="#about" id="about">About us</a>
+            </div>
+            <div id="sign">
+                <a href="signin.html" id="signin">Sign in</a>
+                <a href="signup.html" id="signup">Sign up</a>
+            </div>
+        </div>
+
+        <!-- Back Button -->
+        <div id="back-section">
+            <button id="back-btn" onclick="history.back()">
+                <span>←</span> Back to Roadmaps
+            </button>
+        </div>
+
+        <!-- Roadmap Header -->
+        <div id="roadmap-header">
+            <div id="roadmap-badge-container">
+                <span id="roadmap-badge">HOT TREND</span>
+            </div>
+            <h1 id="roadmap-title-main">AI/ML Engineer</h1>
+            <p id="roadmap-subtitle">Master the complete journey from beginner to AI/ML expert</p>
+            <div id="roadmap-stats">
+                <div class="stat-item">
+                    <span class="stat-number">12-18</span>
+                    <span class="stat-label">Months</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">150+</span>
+                    <span class="stat-label">Lessons</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">25+</span>
+                    <span class="stat-label">Projects</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">Beginner</span>
+                    <span class="stat-label">Level</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Progress Bar -->
+        <div id="progress-section">
+            <div id="progress-header">
+                <h3>Your Progress</h3>
+                <span id="progress-percentage">0%</span>
+            </div>
+            <div id="progress-bar">
+                <div id="progress-fill"></div>
+            </div>
+        </div>
+
+        <!-- Roadmap Content -->
+        <div id="roadmap-content">
+            <!-- Phase 1: Foundation -->
+            <div class="roadmap-phase">
+                <div class="phase-container">
+                    <div class="phase-header">
+                        <div class="phase-number">01</div>
+                        <div class="phase-info">
+                            <h2>Foundation & Prerequisites</h2>
+                            <p>Build your mathematical and programming foundation</p>
+                            <span class="phase-duration">2-3 months</span>
+                        </div>
+                        <div class="phase-status incomplete">Not Started</div>
+                    </div>
+                    <div class="phase-content">
+                        <div class="lesson-group">
+                            <h4>Mathematics Fundamentals</h4>
+                            <div class="lessons">
+                                <div class="lesson-item">
+                                    <div class="lesson-icon">📊</div>
+                                    <div class="lesson-content">
+                                        <h5>Linear Algebra Basics</h5>
+                                        <p>Vectors, matrices, eigenvalues, and eigenvectors</p>
+                                        <span class="lesson-duration">2 weeks</span>
+                                    </div>
+                                    <button class="lesson-btn">Start</button>
+                                </div>
+                                <div class="lesson-item">
+                                    <div class="lesson-icon">📈</div>
+                                    <div class="lesson-content">
+                                        <h5>Statistics & Probability</h5>
+                                        <p>Descriptive statistics, probability distributions</p>
+                                        <span class="lesson-duration">2 weeks</span>
+                                    </div>
+                                    <button class="lesson-btn">Start</button>
+                                </div>
+                                <div class="lesson-item">
+                                    <div class="lesson-icon">🧮</div>
+                                    <div class="lesson-content">
+                                        <h5>Calculus for ML</h5>
+                                        <p>Derivatives, gradients, optimization basics</p>
+                                        <span class="lesson-duration">2 weeks</span>
+                                    </div>
+                                    <button class="lesson-btn">Start</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="lesson-group">
+                            <h4>Programming Fundamentals</h4>
+                            <div class="lessons">
+                                <div class="lesson-item">
+                                    <div class="lesson-icon">🐍</div>
+                                    <div class="lesson-content">
+                                        <h5>Python Mastery</h5>
+                                        <p>Syntax, data structures, OOP, and best practices</p>
+                                        <span class="lesson-duration">3 weeks</span>
+                                    </div>
+                                    <button class="lesson-btn">Start</button>
+                                </div>
+                                <div class="lesson-item">
+                                    <div class="lesson-icon">📚</div>
+                                    <div class="lesson-content">
+                                        <h5>Essential Libraries</h5>
+                                        <p>NumPy, Pandas, Matplotlib, Seaborn</p>
+                                        <span class="lesson-duration">2 weeks</span>
+                                    </div>
+                                    <button class="lesson-btn">Start</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phase 2: Machine Learning -->
+            <div class="roadmap-phase">
+                <div class="phase-container">
+                    <div class="phase-header">
+                        <div class="phase-number">02</div>
+                        <div class="phase-info">
+                            <h2>Machine Learning Fundamentals</h2>
+                            <p>Learn core ML algorithms and techniques</p>
+                            <span class="phase-duration">3-4 months</span>
+                        </div>
+                        <div class="phase-status locked">Locked</div>
+                    </div>
+                    <div class="phase-content">
+                        <div class="lesson-group">
+                            <h4>Supervised Learning</h4>
+                            <div class="lessons">
+                                <div class="lesson-item locked">
+                                    <div class="lesson-icon">🎯</div>
+                                    <div class="lesson-content">
+                                        <h5>Linear & Logistic Regression</h5>
+                                        <p>Understanding linear relationships and classification</p>
+                                        <span class="lesson-duration">2 weeks</span>
+                                    </div>
+                                    <button class="lesson-btn" disabled>Locked</button>
+                                </div>
+                                <div class="lesson-item locked">
+                                    <div class="lesson-icon">🌳</div>
+                                    <div class="lesson-content">
+                                        <h5>Decision Trees & Random Forests</h5>
+                                        <p>Tree-based algorithms and ensemble methods</p>
+                                        <span class="lesson-duration">2 weeks</span>
+                                    </div>
+                                    <button class="lesson-btn" disabled>Locked</button>
+                                </div>
+                                <div class="lesson-item locked">
+                                    <div class="lesson-icon">🚀</div>
+                                    <div class="lesson-content">
+                                        <h5>Support Vector Machines</h5>
+                                        <p>SVM theory and implementation</p>
+                                        <span class="lesson-duration">1 week</span>
+                                    </div>
+                                    <button class="lesson-btn" disabled>Locked</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="lesson-group">
+                            <h4>Unsupervised Learning</h4>
+                            <div class="lessons">
+                                <div class="lesson-item locked">
+                                    <div class="lesson-icon">🔍</div>
+                                    <div class="lesson-content">
+                                        <h5>Clustering Algorithms</h5>
+                                        <p>K-means, DBSCAN, hierarchical clustering</p>
+                                        <span class="lesson-duration">2 weeks</span>
+                                    </div>
+                                    <button class="lesson-btn" disabled>Locked</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phase 3: Deep Learning -->
+            <div class="roadmap-phase">
+                <div class="phase-container">
+                    <div class="phase-header">
+                        <div class="phase-number">03</div>
+                        <div class="phase-info">
+                            <h2>Deep Learning & Neural Networks</h2>
+                            <p>Dive into neural networks and deep learning</p>
+                            <span class="phase-duration">4-5 months</span>
+                        </div>
+                        <div class="phase-status locked">Locked</div>
+                    </div>
+                    <div class="phase-content">
+                        <div class="lesson-group">
+                            <h4>Neural Networks</h4>
+                            <div class="lessons">
+                                <div class="lesson-item locked">
+                                    <div class="lesson-icon">🧠</div>
+                                    <div class="lesson-content">
+                                        <h5>Neural Network Fundamentals</h5>
+                                        <p>Perceptrons, backpropagation, activation functions</p>
+                                        <span class="lesson-duration">3 weeks</span>
+                                    </div>
+                                    <button class="lesson-btn" disabled>Locked</button>
+                                </div>
+                                <div class="lesson-item locked">
+                                    <div class="lesson-icon">👁️</div>
+                                    <div class="lesson-content">
+                                        <h5>Convolutional Neural Networks</h5>
+                                        <p>CNN architecture for computer vision</p>
+                                        <span class="lesson-duration">3 weeks</span>
+                                    </div>
+                                    <button class="lesson-btn" disabled>Locked</button>
+                                </div>
+                                <div class="lesson-item locked">
+                                    <div class="lesson-icon">🔄</div>
+                                    <div class="lesson-content">
+                                        <h5>Recurrent Neural Networks</h5>
+                                        <p>RNN, LSTM, GRU for sequence data</p>
+                                        <span class="lesson-duration">3 weeks</span>
+                                    </div>
+                                    <button class="lesson-btn" disabled>Locked</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phase 4: Advanced Topics -->
+            <div class="roadmap-phase">
+                <div class="phase-container">
+                    <div class="phase-header">
+                        <div class="phase-number">04</div>
+                        <div class="phase-info">
+                            <h2>Advanced AI & Specializations</h2>
+                            <p>Master cutting-edge AI techniques</p>
+                            <span class="phase-duration">3-4 months</span>
+                        </div>
+                        <div class="phase-status locked">Locked</div>
+                    </div>
+                    <div class="phase-content">
+                        <div class="lesson-group">
+                            <h4>Modern AI</h4>
+                            <div class="lessons">
+                                <div class="lesson-item locked">
+                                    <div class="lesson-icon">🤖</div>
+                                    <div class="lesson-content">
+                                        <h5>Transformers & Attention</h5>
+                                        <p>Understanding modern NLP architectures</p>
+                                        <span class="lesson-duration">2 weeks</span>
+                                    </div>
+                                    <button class="lesson-btn" disabled>Locked</button>
+                                </div>
+                                <div class="lesson-item locked">
+                                    <div class="lesson-icon">🎨</div>
+                                    <div class="lesson-content">
+                                        <h5>Generative AI</h5>
+                                        <p>GANs, VAEs, and generative models</p>
+                                        <span class="lesson-duration">3 weeks</span>
+                                    </div>
+                                    <button class="lesson-btn" disabled>Locked</button>
+                                </div>
+                                <div class="lesson-item locked">
+                                    <div class="lesson-icon">🔬</div>
+                                    <div class="lesson-content">
+                                        <h5>MLOps & Production</h5>
+                                        <p>Deploy and scale ML models in production</p>
+                                        <span class="lesson-duration">4 weeks</span>
+                                    </div>
+                                    <button class="lesson-btn" disabled>Locked</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div id="action-section">
+            <button id="enroll-btn">Enroll Now - Start Your Journey</button>
+            <button id="preview-btn">Preview Course Content</button>
+        </div>
+    </div>
+
+    <script src='../Script/background.js'></script>
+    <script src='../Script/roadmap-detail.js'></script>
+</body>
+</html>

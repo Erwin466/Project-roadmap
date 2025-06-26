@@ -1,0 +1,631 @@
+/* Roadmap Detail Page Styling */
+:root {
+    --maincolor: rgb(63, 5, 70);
+    --maingrad: linear-gradient(45deg,rgb(9, 61, 129),rgb(5, 9, 66));
+    --mainfont: "Play", sans-serif;
+    --textcolor: white;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--mainfont);
+}
+
+body {
+    font-family: 'Play', sans-serif;
+    background: #0a0a0a;
+    color: #ffffff;
+    overflow-x: hidden;
+    position: relative;
+    min-height: 100vh;
+}
+
+#roadmap-detail-container {
+    position: relative;
+    z-index: 2;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Navigation (exactly matching main page style) */
+#nav {
+    height: 60px;
+    width: 90%;
+    max-width: 1100px;
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
+    flex-wrap: wrap;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#nav #links {
+    width: auto;
+    flex: 1;
+}
+
+#nav a {
+    display: inline-block;
+    color: var(--textcolor);
+    padding: 10px 30px 10px 30px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+#nav a:hover {
+    opacity: 0.8;
+    transform: scale(1.05);
+}
+
+#nav a:visited {
+    color: var(--textcolor);
+}
+
+#nav a:focus {
+    outline: 2px solid rgba(255, 255, 255, 0.5);
+    outline-offset: 2px;
+}
+
+#sign {
+    margin-left: auto;
+    width: auto;
+    display: flex;
+    gap: 10px;
+}
+
+#sign a {
+    display: inline-block;
+    min-width: 80px;
+    height: 40px;
+    border-radius: 50px;
+    background-color: var(--maincolor);
+    color: var(--textcolor);
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0 20px;
+    text-decoration: none;
+}
+
+#sign a:hover {
+    background-color: rgba(63, 5, 70, 0.8);
+    transform: translateY(-2px);
+}
+
+/* Back Button */
+#back-section {
+    margin-top: 120px;
+    margin-bottom: 20px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#back-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#back-btn:hover {
+    background: rgba(66, 133, 244, 0.1);
+    border-color: #4285f4;
+    color: #4285f4;
+}
+
+/* Roadmap Header */
+#roadmap-header {
+    text-align: center;
+    margin-bottom: 40px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#roadmap-badge-container {
+    margin-bottom: 20px;
+}
+
+#roadmap-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #4285f4, #00bcd4);
+    color: #ffffff;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 6px 16px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+#roadmap-badge.popular {
+    background: linear-gradient(135deg, #ff9800, #ff5722);
+}
+
+#roadmap-badge.beginner {
+    background: linear-gradient(135deg, #4caf50, #8bc34a);
+}
+
+#roadmap-badge.flexible {
+    background: linear-gradient(135deg, #9c27b0, #e91e63);
+}
+
+#roadmap-badge.trending {
+    background: linear-gradient(135deg, #ff4081, #e91e63);
+}
+
+#roadmap-badge.hot {
+    background: linear-gradient(135deg, #4285f4, #00bcd4);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+#roadmap-title-main {
+    font-family: 'Play', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 15px;
+    background: linear-gradient(135deg, #ffffff 0%, #4285f4 50%, #ffffff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+#roadmap-subtitle {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 30px;
+}
+
+#roadmap-stats {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.stat-item {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 20px;
+    min-width: 120px;
+    backdrop-filter: blur(10px);
+}
+
+.stat-number {
+    display: block;
+    font-family: 'Play', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #4285f4;
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Progress Section */
+#progress-section {
+    max-width: 1200px;
+    margin: 0 auto 40px auto;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 25px;
+    backdrop-filter: blur(10px);
+}
+
+#progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+#progress-header h3 {
+    font-family: 'Play', sans-serif;
+    color: #ffffff;
+    font-size: 1.2rem;
+}
+
+#progress-percentage {
+    font-family: 'IBM Plex Mono', monospace;
+    color: #4285f4;
+    font-weight: 600;
+}
+
+#progress-bar {
+    width: 100%;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+#progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #4285f4, #00bcd4);
+    width: 0%;
+    transition: width 0.6s ease;
+    border-radius: 4px;
+}
+
+/* Roadmap Content */
+#roadmap-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.roadmap-phase {
+    margin-bottom: 40px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+}
+
+.phase-header {
+    display: flex;
+    align-items: center;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.phase-header:hover {
+    background: rgba(66, 133, 244, 0.05);
+}
+
+.phase-number {
+    font-family: 'Play', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #4285f4;
+    margin-right: 25px;
+    width: 60px;
+    text-align: center;
+}
+
+.phase-info {
+    flex: 1;
+}
+
+.phase-info h2 {
+    font-family: 'Play', sans-serif;
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin-bottom: 5px;
+}
+
+.phase-info p {
+    font-family: 'IBM Plex Mono', monospace;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 5px;
+}
+
+.phase-duration {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.8rem;
+    color: #4285f4;
+    background: rgba(66, 133, 244, 0.1);
+    padding: 4px 8px;
+    border-radius: 12px;
+}
+
+.phase-status {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.9rem;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+.phase-status.incomplete {
+    background: rgba(255, 193, 7, 0.2);
+    color: #ffc107;
+    border: 1px solid rgba(255, 193, 7, 0.3);
+}
+
+.phase-status.locked {
+    background: rgba(156, 39, 176, 0.2);
+    color: #9c27b0;
+    border: 1px solid rgba(156, 39, 176, 0.3);
+}
+
+.phase-status.completed {
+    background: rgba(76, 175, 80, 0.2);
+    color: #4caf50;
+    border: 1px solid rgba(76, 175, 80, 0.3);
+}
+
+/* Phase Content */
+.phase-content {
+    padding: 25px;
+}
+
+.lesson-group {
+    margin-bottom: 30px;
+}
+
+.lesson-group h4 {
+    font-family: 'Play', sans-serif;
+    color: #4285f4;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(66, 133, 244, 0.2);
+}
+
+.lessons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.lesson-item {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+.lesson-item:hover:not(.locked) {
+    background: rgba(66, 133, 244, 0.05);
+    border-color: rgba(66, 133, 244, 0.2);
+    transform: translateX(5px);
+}
+
+.lesson-item.locked {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.lesson-icon {
+    font-size: 1.5rem;
+    margin-right: 20px;
+    width: 40px;
+    text-align: center;
+}
+
+.lesson-content {
+    flex: 1;
+}
+
+.lesson-content h5 {
+    font-family: 'Play', sans-serif;
+    color: #ffffff;
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+
+.lesson-content p {
+    font-family: 'IBM Plex Mono', monospace;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.85rem;
+    margin-bottom: 5px;
+}
+
+.lesson-duration {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    color: #4285f4;
+    background: rgba(66, 133, 244, 0.1);
+    padding: 2px 8px;
+    border-radius: 8px;
+}
+
+.lesson-btn {
+    background: linear-gradient(135deg, #4285f4, #00bcd4);
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 80px;
+}
+
+.lesson-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(66, 133, 244, 0.3);
+}
+
+.lesson-btn:disabled {
+    background: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.5);
+    cursor: not-allowed;
+}
+
+/* Action Section */
+#action-section {
+    max-width: 1200px;
+    margin: 40px auto;
+    text-align: center;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#enroll-btn {
+    background: linear-gradient(135deg, #4285f4, #00bcd4);
+    color: #ffffff;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 25px;
+    font-family: 'Play', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 250px;
+    box-shadow: 0 5px 20px rgba(66, 133, 244, 0.3);
+}
+
+#enroll-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(66, 133, 244, 0.4);
+    filter: brightness(1.1);
+}
+
+#preview-btn {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 15px 30px;
+    border-radius: 25px;
+    font-family: 'Play', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 200px;
+}
+
+#preview-btn:hover {
+    background: rgba(66, 133, 244, 0.1);
+    border-color: #4285f4;
+    color: #4285f4;
+    transform: translateY(-3px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #nav {
+        padding: 15px 20px;
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    #roadmap-title-main {
+        font-size: 2.5rem;
+    }
+    
+    #roadmap-stats {
+        gap: 20px;
+    }
+    
+    .stat-item {
+        min-width: 100px;
+        padding: 15px;
+    }
+    
+    .phase-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+        padding: 20px;
+    }
+    
+    .phase-number {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+    
+    .lesson-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+        padding: 15px;
+    }
+    
+    .lesson-icon {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+    
+    #action-section {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    #enroll-btn,
+    #preview-btn {
+        min-width: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    #roadmap-detail-container {
+        padding: 15px;
+    }
+    
+    #back-section {
+        margin-top: 120px;
+    }
+    
+    #roadmap-title-main {
+        font-size: 2rem;
+    }
+    
+    .roadmap-phase,
+    #progress-section {
+        margin-bottom: 20px;
+    }
+    
+    .phase-content,
+    #progress-section {
+        padding: 15px;
+    }
+}
+
+/* Animation for elements loading */
+.roadmap-phase {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.roadmap-phase:nth-child(1) { animation-delay: 0.1s; }
+.roadmap-phase:nth-child(2) { animation-delay: 0.2s; }
+.roadmap-phase:nth-child(3) { animation-delay: 0.3s; }
+.roadmap-phase:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

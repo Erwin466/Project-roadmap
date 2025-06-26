@@ -21,38 +21,54 @@ body {
     padding: 20px;
 }
 
-/* Navigation Styling */
+/* Navigation Styling (matching main page) */
 #nav {
+    height: 60px;
+    width: 90%;
+    max-width: 1100px;
+    padding-top: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 40px;
+    z-index: 1000;
+    flex-wrap: wrap;
     position: fixed;
     top: 0;
-    left: 0;
-    right: 0;
-    background: rgba(10, 10, 10, 0.95);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    z-index: 1000;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
-#links {
-    display: flex;
-    gap: 30px;
+#nav #links {
+    width: auto;
+    flex: 1;
 }
 
-#links a {
+#nav a {
+    display: inline-block;
     color: #ffffff;
-    text-decoration: none;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 16px;
-    font-weight: 400;
+    padding: 10px 30px 10px 30px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
     transition: all 0.3s ease;
-    position: relative;
+    text-decoration: none;
+    font-family: 'Play', sans-serif;
 }
 
-#links a:hover,
+#nav a:hover {
+    opacity: 0.8;
+    transform: scale(1.05);
+}
+
+#nav a:visited {
+    color: #ffffff;
+}
+
+#nav a:focus {
+    outline: 2px solid rgba(255, 255, 255, 0.5);
+    outline-offset: 2px;
+}
+
 #links a.active {
     color: #4285f4;
 }
@@ -68,31 +84,38 @@ body {
 }
 
 #sign {
+    margin-left: auto;
+    width: auto;
     display: flex;
-    gap: 15px;
+    gap: 10px;
 }
 
 #sign a {
+    display: inline-block;
+    min-width: 80px;
+    height: 40px;
+    border-radius: 50px;
+    background-color: rgb(63, 5, 70);
     color: #ffffff;
-    text-decoration: none;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 14px;
-    padding: 8px 16px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 6px;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
     transition: all 0.3s ease;
+    padding: 0 20px;
+    text-decoration: none;
+    font-family: 'Play', sans-serif;
+    font-weight: bold;
 }
 
 #sign a:hover {
-    background: rgba(66, 133, 244, 0.1);
-    border-color: #4285f4;
-    color: #4285f4;
+    background-color: rgba(63, 5, 70, 0.8);
+    transform: translateY(-2px);
 }
 
 /* Header Section */
 #roadmaps-header {
     text-align: center;
-    margin-top: 120px;
+    margin-top: 140px;
     margin-bottom: 60px;
     padding: 0 20px;
 }
@@ -121,23 +144,31 @@ body {
 /* Roadmaps Grid */
 #roadmaps-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
     max-width: 1400px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
-/* Roadmap Cards */
+/* Roadmap Cards - Circular Design */
 .roadmap-card {
     background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 16px;
-    padding: 30px;
-    transition: all 0.3s ease;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    width: 350px;
+    height: 350px;
+    padding: 40px;
+    transition: all 0.4s ease;
     position: relative;
     overflow: hidden;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(15px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
 }
 
 .roadmap-card::before {
@@ -147,16 +178,17 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, rgba(66, 133, 244, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+    background: radial-gradient(circle at center, rgba(66, 133, 244, 0.15) 0%, rgba(255, 255, 255, 0.05) 70%);
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.4s ease;
     z-index: -1;
+    border-radius: 50%;
 }
 
 .roadmap-card:hover {
-    transform: translateY(-5px);
-    border-color: rgba(66, 133, 244, 0.3);
-    box-shadow: 0 20px 40px rgba(66, 133, 244, 0.1);
+    transform: translateY(-10px) scale(1.05);
+    border-color: rgba(66, 133, 244, 0.4);
+    box-shadow: 0 25px 50px rgba(66, 133, 244, 0.2);
 }
 
 .roadmap-card:hover::before {
@@ -164,13 +196,15 @@ body {
 }
 
 .roadmap-card.featured {
-    border-color: rgba(66, 133, 244, 0.4);
-    background: rgba(66, 133, 244, 0.08);
+    border-color: rgba(66, 133, 244, 0.5);
+    background: rgba(66, 133, 244, 0.1);
+    box-shadow: 0 15px 30px rgba(66, 133, 244, 0.15);
 }
 
 /* Card Header */
 .card-header {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    z-index: 2;
 }
 
 .card-badge {
@@ -178,123 +212,106 @@ body {
     background: linear-gradient(135deg, #4285f4, #00bcd4);
     color: #ffffff;
     font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.75rem;
+    font-size: 0.65rem;
     font-weight: 600;
-    padding: 4px 12px;
-    border-radius: 20px;
-    margin-bottom: 15px;
+    padding: 3px 8px;
+    border-radius: 15px;
+    margin-bottom: 8px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
 
+.card-badge.popular {
+    background: linear-gradient(135deg, #ff9800, #ff5722);
+}
+
+.card-badge.beginner {
+    background: linear-gradient(135deg, #4caf50, #8bc34a);
+}
+
+.card-badge.flexible {
+    background: linear-gradient(135deg, #9c27b0, #e91e63);
+}
+
+.card-badge.trending {
+    background: linear-gradient(135deg, #ff4081, #e91e63);
+}
+
 .card-title {
     font-family: 'Play', sans-serif;
-    font-size: 1.8rem;
+    font-size: 1.3rem;
     font-weight: 700;
     color: #ffffff;
-    margin-bottom: 8px;
+    margin-bottom: 4px;
+    line-height: 1.2;
 }
 
 .card-position {
     font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.9rem;
+    font-size: 0.75rem;
     color: rgba(255, 255, 255, 0.6);
-    margin-bottom: 15px;
+    margin-bottom: 8px;
 }
 
 /* Card Content */
 .card-content {
-    margin-bottom: 25px;
+    margin-bottom: 10px;
+    flex: 1;
+    display: flex;
+    align-items: center;
 }
 
 .card-description {
     font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.9rem;
-    line-height: 1.6;
+    font-size: 0.7rem;
+    line-height: 1.4;
     color: rgba(255, 255, 255, 0.8);
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+    -webkit-box-orient: vertical;
 }
 
-/* Skills Section */
+/* Skills Section - Hidden for circular design */
 .card-skills {
-    margin-bottom: 25px;
+    display: none;
 }
 
-.skills-section {
-    margin-bottom: 20px;
+/* Card Footer */
+.card-footer {
+    z-index: 2;
 }
 
-.skills-section h4 {
-    font-family: 'Play', sans-serif;
-    font-size: 1rem;
-    color: #4285f4;
-    margin-bottom: 10px;
-    font-weight: 600;
-}
-
-.skills-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-}
-
-.skill-tag {
-    background: rgba(66, 133, 244, 0.2);
-    color: #4285f4;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.8rem;
-    padding: 6px 12px;
-    border-radius: 20px;
-    border: 1px solid rgba(66, 133, 244, 0.3);
-    transition: all 0.3s ease;
-}
-
-.skill-tag:hover {
-    background: rgba(66, 133, 244, 0.3);
-    transform: translateY(-2px);
-}
-
-/* Card Actions */
-.card-actions {
-    display: flex;
-    gap: 15px;
-    align-items: center;
-}
-
-.start-learning-btn {
-    flex: 1;
+/* Start Learning Button */
+.start-btn {
     background: linear-gradient(135deg, #4285f4, #00bcd4);
     color: #ffffff;
     border: none;
     padding: 12px 24px;
-    border-radius: 8px;
+    border-radius: 25px;
     font-family: 'Play', sans-serif;
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
     text-decoration: none;
     display: inline-block;
     text-align: center;
+    min-width: 140px;
+    box-shadow: 0 4px 15px rgba(66, 133, 244, 0.3);
 }
 
-.start-learning-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(66, 133, 244, 0.3);
+.start-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(66, 133, 244, 0.4);
     filter: brightness(1.1);
+    background: linear-gradient(135deg, #5294ff, #00e5ff);
 }
 
-.card-duration {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.6);
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
-.card-duration::before {
-    content: '⏱️';
-    font-size: 0.8rem;
+.start-btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(66, 133, 244, 0.5);
 }
 
 /* Responsive Design */
@@ -323,21 +340,30 @@ body {
     
     #roadmaps-grid {
         grid-template-columns: 1fr;
-        gap: 20px;
+        gap: 30px;
         padding: 0 15px;
     }
     
     .roadmap-card {
-        padding: 20px;
+        width: 280px;
+        height: 280px;
+        padding: 30px;
     }
     
     .card-title {
-        font-size: 1.5rem;
+        font-size: 1.1rem;
     }
     
-    .card-actions {
-        flex-direction: column;
-        align-items: stretch;
+    .card-description {
+        font-size: 0.65rem;
+        -webkit-line-clamp: 3;
+        line-clamp: 3;
+    }
+    
+    .start-btn {
+        padding: 10px 20px;
+        font-size: 0.8rem;
+        min-width: 120px;
     }
 }
 
@@ -356,16 +382,30 @@ body {
     }
     
     .roadmap-card {
-        padding: 15px;
+        width: 250px;
+        height: 250px;
+        padding: 25px;
     }
     
-    .skills-tags {
-        gap: 6px;
+    .card-title {
+        font-size: 1rem;
     }
     
-    .skill-tag {
+    .card-badge {
+        font-size: 0.6rem;
+        padding: 2px 6px;
+    }
+    
+    .card-description {
+        font-size: 0.6rem;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+    }
+    
+    .start-btn {
+        padding: 8px 16px;
         font-size: 0.75rem;
-        padding: 4px 8px;
+        min-width: 100px;
     }
 }
 
