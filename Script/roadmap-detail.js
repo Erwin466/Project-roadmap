@@ -298,12 +298,8 @@ function updateScrollEffects() {
     const scrolled = window.pageYOffset;
     const nav = document.getElementById('nav');
     
-    // Add/remove background opacity based on scroll
-    if (scrolled > 50) {
-        nav.style.background = 'rgba(10, 10, 10, 0.98)';
-    } else {
-        nav.style.background = 'rgba(10, 10, 10, 0.95)';
-    }
+    // Keep navigation transparent like main page (no background change on scroll)
+    // No background changes needed - nav should stay transparent
     
     // Parallax effect for header
     const header = document.getElementById('roadmap-header');
